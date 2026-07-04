@@ -46,6 +46,14 @@ export default function Collections() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
   const [selectedFilter, setSelectedFilter] = useState("All");
+  const [expandedProducts, setExpandedProducts] = useState<Record<string, boolean>>({});
+
+  const toggleExpand = (productId: string) => {
+    setExpandedProducts((prev) => ({
+      ...prev,
+      [productId]: !prev[productId],
+    }));
+  };
 
   // Get unique category list
   const filterCategories = ["All", ...CATEGORIES.map((c) => c.title)];
@@ -229,9 +237,27 @@ export default function Collections() {
                     </span>
                   </div>
 
-                  <p className="text-gray text-xs sm:text-sm leading-relaxed mb-6 flex-1">
-                    {product.description}
-                  </p>
+                  {(() => {
+                    const isExpanded = !!expandedProducts[product.id];
+                    const shouldTruncate = product.description.length > 120;
+                    const displayText = shouldTruncate && !isExpanded
+                      ? `${product.description.substring(0, 110)}...`
+                      : product.description;
+
+                    return (
+                      <p className="text-gray text-xs sm:text-sm leading-relaxed mb-6 flex-1">
+                        {displayText}
+                        {shouldTruncate && (
+                          <button
+                            onClick={() => toggleExpand(product.id)}
+                            className="text-gold hover:text-gold-light font-medium ml-1.5 focus:outline-none transition-colors duration-300 inline-block cursor-pointer font-semibold text-xs tracking-wider"
+                          >
+                            {isExpanded ? "READ LESS" : "READ MORE"}
+                          </button>
+                        )}
+                      </p>
+                    );
+                  })()}
 
                   {/* Notes Details */}
                   <div className="bg-white/[0.02] border border-white/5 rounded-xl p-3 mb-6 space-y-1.5 text-[11px] sm:text-xs">
