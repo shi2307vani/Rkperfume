@@ -27,6 +27,21 @@ const ICON_MAP = {
   Droplets
 } as const;
 
+interface Product {
+  id: string;
+  name: string;
+  category: string;
+  priceRange: string;
+  description: string;
+  notes: {
+    top: string;
+    heart: string;
+    base: string;
+  };
+  image: string;
+  tag?: string;
+}
+
 export default function Collections() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
@@ -35,9 +50,11 @@ export default function Collections() {
   // Get unique category list
   const filterCategories = ["All", ...CATEGORIES.map((c) => c.title)];
 
+  const products = COLLECTION_PRODUCTS as unknown as readonly Product[];
+
   const filteredProducts = selectedFilter === "All"
-    ? COLLECTION_PRODUCTS
-    : COLLECTION_PRODUCTS.filter((product) => product.category === selectedFilter);
+    ? products
+    : products.filter((product) => product.category === selectedFilter);
 
   const getWhatsAppLink = (productName: string, category: string) => {
     const text = encodeURIComponent(
