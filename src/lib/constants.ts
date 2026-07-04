@@ -1,11 +1,8 @@
 export const NAV_LINKS = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Collections", href: "#collections" },
-  { label: "Why RK Perfume", href: "#why-us" },
-  { label: "Testimonials", href: "#testimonials" },
-  { label: "Visit Store", href: "#store" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Collections", href: "/collections" },
+  { label: "Contact", href: "/contact" },
 ] as const;
 
 export const BUSINESS_INFO = {

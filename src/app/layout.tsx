@@ -4,6 +4,10 @@ import "./globals.css";
 import { SEO, BUSINESS_INFO } from "@/lib/constants";
 import JsonLd from "@/components/JsonLd";
 import ThemeProvider from "@/components/ThemeManager";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import FloatingElements from "@/components/FloatingElements";
+import LoadingScreen from "@/components/LoadingScreen";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -82,8 +86,16 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta name="theme-color" content="#0B0B0B" />
       </head>
-      <body className="min-h-full flex flex-col">
-        <ThemeProvider>{children}</ThemeProvider>
+      <body className="min-h-full flex flex-col bg-dark text-white">
+        <ThemeProvider>
+          <LoadingScreen />
+          <Navbar />
+          <main className="flex-grow">
+            {children}
+          </main>
+          <Footer />
+          <FloatingElements />
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -4,41 +4,22 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Phone, Menu, X } from "lucide-react";
 import { NAV_LINKS, BUSINESS_INFO } from "@/lib/constants";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
-
-      // Track active section
-      const sections = NAV_LINKS.map((link) => link.href.replace("#", ""));
-      for (const section of sections.reverse()) {
-        const el = document.getElementById(section);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          if (rect.top <= 150) {
-            setActiveSection(section);
-            break;
-          }
-        }
-      }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const handleNavClick = (href: string) => {
-    setIsMobileMenuOpen(false);
-    const el = document.querySelector(href);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
-  };
 
   return (
     <>
@@ -55,48 +36,39 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <motion.a
-              href="#home"
-              onClick={(e) => {
-                e.preventDefault();
-                handleNavClick("#home");
-              }}
+            <Link
+              href="/"
               className="flex items-center group"
-              whileHover={{ scale: 1.02 }}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/images/logo.png"
                 alt="RK Perfume Logo"
-                className="h-12 w-auto object-contain"
+                className="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
               />
-            </motion.a>
+            </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-1">
               {NAV_LINKS.map((link) => (
-                <a
+                <Link
                   key={link.href}
                   href={link.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleNavClick(link.href);
-                  }}
                   className={`relative px-4 py-2 text-sm font-medium transition-colors duration-300 rounded-lg ${
-                    activeSection === link.href.replace("#", "")
+                    pathname === link.href
                       ? "text-gold"
                       : "text-gray hover:text-white"
                   }`}
                 >
                   {link.label}
-                  {activeSection === link.href.replace("#", "") && (
+                  {pathname === link.href && (
                     <motion.div
                       layoutId="activeNav"
                       className="absolute bottom-0 left-1/2 -translate-x-1/2 w-6 h-0.5 bg-gold rounded-full"
                       transition={{ type: "spring", stiffness: 300, damping: 30 }}
                     />
                   )}
-                </a>
+                </Link>
               ))}
             </div>
 
@@ -149,24 +121,24 @@ export default function Navbar() {
               <div className="p-6 pt-24">
                 <div className="space-y-1">
                   {NAV_LINKS.map((link, i) => (
-                    <motion.a
+                    <motion.div
                       key={link.href}
-                      href={link.href}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        handleNavClick(link.href);
-                      }}
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: i * 0.05 }}
-                      className={`block px-4 py-3 rounded-xl text-base font-medium transition-all duration-300 ${
-                        activeSection === link.href.replace("#", "")
-                          ? "text-gold bg-gold/10"
-                          : "text-gray hover:text-white hover:bg-white/5"
-                      }`}
                     >
-                      {link.label}
-                    </motion.a>
+                      <Link
+                        href={link.href}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className={`block px-4 py-3 rounded-xl text-base font-medium transition-all duration-300 ${
+                          pathname === link.href
+                            ? "text-gold bg-gold/10"
+                            : "text-gray hover:text-white hover:bg-white/5"
+                        }`}
+                      >
+                        {link.label}
+                      </Link>
+                    </motion.div>
                   ))}
                 </div>
 
@@ -174,6 +146,7 @@ export default function Navbar() {
                   <a
                     href={`tel:${BUSINESS_INFO.phone}`}
                     className="flex items-center justify-center gap-2 btn-gold w-full text-center"
+                    onClick={() => setIsMobileMenuOpen(false)}
                   >
                     <Phone size={18} />
                     Call Now
