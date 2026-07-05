@@ -112,7 +112,7 @@ export default function FeaturedProducts() {
 
               {/* Body Content */}
               <div className="p-6 sm:p-7 flex flex-col flex-1">
-                <div className="flex items-start justify-between mb-3">
+                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 mb-3">
                   <div>
                     <span className="text-gold text-[10px] font-semibold tracking-widest uppercase block mb-1">
                       {product.category}
@@ -121,7 +121,7 @@ export default function FeaturedProducts() {
                       {product.name}
                     </h4>
                   </div>
-                  <span className="text-gold-light font-medium text-sm whitespace-nowrap ml-2">
+                  <span className="text-gold-light font-medium text-sm whitespace-nowrap sm:ml-2">
                     {product.priceRange}
                   </span>
                 </div>

@@ -57,19 +57,6 @@ export default function FloatingElements() {
         <span className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-20" />
       </motion.a>
 
-      {/* Sticky Call Button (mobile) */}
-      <motion.a
-        href={`tel:${BUSINESS_INFO.phone}`}
-        className="fixed bottom-5 right-5 z-40 w-14 h-14 rounded-full bg-gradient-to-br from-gold to-amber-600 flex items-center justify-center shadow-lg shadow-gold/30 sm:hidden"
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-        initial={{ opacity: 0, scale: 0 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 2.2, type: "spring" }}
-        aria-label="Call RK Perfume"
-      >
-        <Phone className="text-dark" size={22} />
-      </motion.a>
 
       {/* Back To Top */}
       <AnimatePresence>

@@ -11,7 +11,7 @@ export const BUSINESS_INFO = {
   owner: "Rakesh",
   phone: "+91 82828 25008",
   phoneClean: "918282825008",
-  email: "rkperfume09@gmail.com",
+  email: "connect@rkperfume.in",
   address: {
     street: "Tulshibaug Internal Rd",
     area: "Tulshibaug, Budhwar Peth",

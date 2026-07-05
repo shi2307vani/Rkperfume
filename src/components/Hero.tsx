@@ -116,7 +116,7 @@ export default function Hero() {
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
     >
       {/* Background with gradient overlay */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 overflow-hidden">
         <div 
           className="absolute inset-0 transition-all duration-1000" 
           style={{ background: "var(--hero-bg)" }}
@@ -163,7 +163,7 @@ export default function Hero() {
             className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center"
           >
             {/* Left Column: Text & Actions */}
-            <div className="lg:col-span-7 text-center lg:text-left flex flex-col items-center lg:items-start">
+            <div className="w-full lg:col-span-7 text-center lg:text-left flex flex-col items-center lg:items-start">
               {/* Tagline Badge */}
               <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass mb-8">
                 <div className="w-2 h-2 rounded-full bg-gold animate-pulse-gold" />
@@ -173,7 +173,7 @@ export default function Hero() {
               </div>
 
               {/* Main Heading */}
-              <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6">
+              <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6">
                 <span className="text-white">{slides[currentSlide].title}</span>
                 <br />
                 <span className="gradient-text text-gold-glow">
@@ -182,7 +182,7 @@ export default function Hero() {
               </h2>
 
               {/* Subheading */}
-              <p className="text-lg sm:text-xl text-gray max-w-xl mb-10 leading-relaxed min-h-[56px]">
+              <p className="text-base sm:text-xl text-gray max-w-xl mb-10 leading-relaxed min-h-[56px]">
                 {slides[currentSlide].description}
               </p>
 
@@ -214,7 +214,7 @@ export default function Hero() {
             </div>
 
             {/* Right Column: Premium Image Showcase */}
-            <div className="lg:col-span-5 flex justify-center items-center">
+            <div className="w-full lg:col-span-5 flex justify-center items-center">
               <div className="relative w-full max-w-[400px] aspect-square rounded-3xl overflow-hidden gold-glow border border-gold/20 bg-dark group">
                 <div className="absolute inset-0 bg-gradient-to-t from-dark via-transparent to-transparent opacity-40 z-10" />
                 <div className="absolute inset-0 border border-gold/0 group-hover:border-gold/30 rounded-3xl transition-colors duration-500 z-20 pointer-events-none" />
