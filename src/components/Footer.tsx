@@ -130,15 +130,6 @@ export default function Footer() {
             <p className="text-gray text-sm text-center sm:text-left">
               © {currentYear} RK Perfume. All rights reserved.
             </p>
-            <motion.p
-              className="text-gray text-sm flex items-center gap-1"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1 }}
-            >
-              Made with <Heart size={14} className="text-gold fill-gold" /> in
-              Pune
-            </motion.p>
           </div>
         </div>
       </div>
