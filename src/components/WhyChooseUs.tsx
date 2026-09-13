@@ -30,27 +30,26 @@ export default function WhyChooseUs() {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="why-us" className="section-gradient py-24 sm:py-32">
+    <section id="why-us" className="section-cream py-24 sm:py-32">
       <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <span className="text-gold text-sm font-semibold tracking-[0.2em] uppercase">
+          <span className="text-warm-gold text-xs font-medium tracking-[0.3em] uppercase">
             Why Choose Us
           </span>
-          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 mb-6">
-            The RK Perfume{" "}
-            <span className="gradient-text">Difference</span>
+          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl mt-4 mb-6 text-text-primary tracking-tight">
+            The RK Perfume <span className="italic">Difference</span>
           </h2>
-          <p className="text-gray max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
+          <p className="text-text-secondary max-w-xl mx-auto text-base leading-relaxed">
             Experience what makes us Pune&apos;s most trusted perfume destination.
             Quality, authenticity, and luxury at every step.
           </p>
-          <div className="luxury-divider max-w-xs mx-auto mt-8" />
+          <div className="w-12 h-[1px] bg-warm-gold/40 mx-auto mt-8" />
         </motion.div>
 
         {/* Features Grid */}
@@ -58,40 +57,31 @@ export default function WhyChooseUs() {
           {FEATURES.map((feature, i) => (
             <motion.div
               key={feature.title}
-              initial={{ opacity: 0, y: 30, scale: 0.95 }}
-              animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
-              transition={{ duration: 0.6, delay: i * 0.08 }}
-              className="group luxury-card p-6 sm:p-7 text-center relative overflow-hidden"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+              className="card-cream p-6 sm:p-7 text-center group"
             >
-              {/* Glow on hover */}
-              <div className="absolute inset-0 bg-gradient-to-b from-gold/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-
-              <div className="relative">
-                {/* Icon */}
-                <motion.div
-                  className="w-16 h-16 rounded-2xl bg-gradient-to-br from-gold/15 to-gold/5 flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform duration-500"
-                  whileHover={{ rotate: [0, -5, 5, 0] }}
-                  transition={{ duration: 0.5 }}
-                >
-                  {(() => {
-                    const IconComponent = ICON_MAP[feature.icon as keyof typeof ICON_MAP] || Star;
-                    return (
-                      <IconComponent
-                        className="text-gold group-hover:text-gold-light transition-colors duration-500"
-                        size={28}
-                      />
-                    );
-                  })()}
-                </motion.div>
-
-                {/* Text */}
-                <h3 className="text-white font-heading text-lg font-semibold mb-2">
-                  {feature.title}
-                </h3>
-                <p className="text-gray text-sm leading-relaxed">
-                  {feature.description}
-                </p>
+              {/* Icon */}
+              <div className="w-14 h-14 rounded-full bg-cream-dark flex items-center justify-center mx-auto mb-5 group-hover:bg-charcoal group-hover:scale-105 transition-all duration-400">
+                {(() => {
+                  const IconComponent = ICON_MAP[feature.icon as keyof typeof ICON_MAP] || Star;
+                  return (
+                    <IconComponent
+                      className="text-warm-gold transition-colors duration-400"
+                      size={24}
+                    />
+                  );
+                })()}
               </div>
+
+              {/* Text */}
+              <h3 className="text-text-primary font-heading text-lg font-medium mb-2">
+                {feature.title}
+              </h3>
+              <p className="text-text-secondary text-sm leading-relaxed">
+                {feature.description}
+              </p>
             </motion.div>
           ))}
         </div>

@@ -1,0 +1,91 @@
+/* FLEUR Luxury Design System — Color Variables & Tokens */
+:root {
+  /* Canvas & Backgrounds */
+  --fleur-canvas: #F8F7F4;
+  --fleur-canvas-alt: #F3F1ED;
+  --fleur-card-bg: #FFFFFF;
+  --fleur-card-hover: #FAF9F6;
+  --fleur-surface-tint: #F2EFE9;
+
+  /* Typography Colors */
+  --fleur-text-primary: #1C2024;
+  --fleur-text-secondary: #565F67;
+  --fleur-text-muted: #8E98A0;
+  --fleur-text-accent: #B08272;
+
+  /* Botanical & Metallic Accents */
+  --fleur-accent-rose: #C8968D;
+  --fleur-accent-blush: #F4EAE6;
+  --fleur-accent-gold: #C5A059;
+  --fleur-accent-gold-hover: #B08C45;
+  --fleur-accent-sage: #8F9D8B;
+  --fleur-accent-terracotta: #A66551;
+
+  /* Borders & Dividers */
+  --fleur-border-subtle: rgba(28, 32, 36, 0.08);
+  --fleur-border-medium: rgba(28, 32, 36, 0.16);
+  --fleur-border-light: rgba(28, 32, 36, 0.05);
+
+  /* Shadows */
+  --fleur-shadow-soft: 0 10px 30px -10px rgba(28, 32, 36, 0.06);
+  --fleur-shadow-card: 0 14px 40px -15px rgba(28, 32, 36, 0.08);
+  --fleur-shadow-float: 0 20px 50px -15px rgba(200, 150, 141, 0.15);
+
+  /* Transition timings */
+  --fleur-ease-luxury: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Base Body Application */
+body {
+  background-color: var(--fleur-canvas);
+  color: var(--fleur-text-primary);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+/* Editorial Typography Helpers */
+.font-fleur-serif {
+  font-family: var(--font-playfair), Georgia, "Times New Roman", serif;
+  letter-spacing: 0.04em;
+}
+
+.font-fleur-sans {
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  letter-spacing: 0.08em;
+}
+
+/* Elegant Underline Hover Micro-Interaction */
+.fleur-link-underline {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  font-weight: 500;
+  color: var(--fleur-text-primary);
+  text-decoration: none;
+  padding-bottom: 2px;
+}
+
+.fleur-link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background-color: currentColor;
+  transition: transform 0.3s var(--fleur-ease-luxury);
+  transform-origin: left;
+}
+
+.fleur-link-underline:hover::after {
+  transform: scaleX(0.7);
+}
+
+/* Subtle Botanical Line Drawing Overlay */
+.fleur-botanical-bg {
+  background-image: radial-gradient(circle at 10% 20%, rgba(200, 150, 141, 0.03) 0%, transparent 40%),
+                    radial-gradient(circle at 90% 80%, rgba(143, 157, 139, 0.03) 0%, transparent 40%);
+}

@@ -2,198 +2,147 @@
 
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
-import { COLLECTION_PRODUCTS, BUSINESS_INFO } from "@/lib/constants";
-import { ShoppingBag, Sparkles, ArrowRight } from "lucide-react";
-import Link from "next/link";
+import { ArrowRight, Check } from "lucide-react";
+import { BUSINESS_INFO } from "@/lib/constants";
 
-interface Product {
-  id: string;
-  name: string;
-  category: string;
-  priceRange: string;
-  description: string;
-  notes: {
-    top: string;
-    heart: string;
-    base: string;
-  };
-  image: string;
-  tag?: string;
-}
+const CUSTOMER_FAVORITES = [
+  {
+    id: "azure-bloom",
+    title: "AZURE BLOOM",
+    type: "Eau de parfum",
+    size: "50 ml",
+    price: "₹2,499",
+    priceUsd: "$210.00",
+    image: "/images/fleur_product_azure_bloom.jpg",
+    description: "Luminous fresh fig, white magnolia petals, and sun-warmed river stone.",
+  },
+  {
+    id: "whispering-spring",
+    title: "WHISPERING SPRING",
+    type: "Scented candle",
+    size: "200 ml",
+    price: "₹1,899",
+    priceUsd: "$60.00",
+    image: "/images/fleur_product_candle.jpg",
+    description: "Pure botanical wax infused with early morning dew, green tea, and cherry blossom.",
+  },
+  {
+    id: "azure-bloom-for-him",
+    title: "AZURE BLOOM FOR HIM",
+    type: "Eau de parfum",
+    size: "50 ml",
+    price: "₹2,699",
+    priceUsd: "$220.00",
+    image: "/images/fleur_product_azure_him.jpg",
+    description: "Smoky purple fig, velvet dark cedar, and damask rose on mineral flint.",
+  },
+];
 
 export default function FeaturedProducts() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
-  const [expandedProducts, setExpandedProducts] = useState<Record<string, boolean>>({});
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [addedId, setAddedId] = useState<string | null>(null);
 
-  const toggleExpand = (productId: string) => {
-    setExpandedProducts((prev) => ({
-      ...prev,
-      [productId]: !prev[productId],
-    }));
-  };
-
-  // Get the selected 6 featured products
-  const featuredIds = ["p2", "p1", "p3", "p4", "p5", "p6"];
-  const allProducts = COLLECTION_PRODUCTS as unknown as readonly Product[];
-  const featuredProducts = allProducts.filter((product) =>
-    featuredIds.includes(product.id)
-  );
-
-  const getWhatsAppLink = (productName: string, category: string) => {
-    const text = encodeURIComponent(
-      `Hi Rakesh, I saw your website and I'm interested in inquiring about "${productName}" from the ${category} collection. Can you share more details?`
-    );
-    return `https://wa.me/${BUSINESS_INFO.phoneClean}?text=${text}`;
+  const handleAddToCart = (product: typeof CUSTOMER_FAVORITES[0]) => {
+    setAddedId(product.id);
+    setTimeout(() => setAddedId(null), 2000);
+    // WhatsApp inquiry direct checkout
+    const msg = encodeURIComponent(`Hi RK Perfume! I would like to order "${product.title}" (${product.type} ${product.size}) for ${product.price}.`);
+    window.open(`${BUSINESS_INFO.social.whatsapp}?text=${msg}`, "_blank");
   };
 
   return (
-    <section id="featured-products" className="section-dark py-24 sm:py-32 relative overflow-hidden">
-      {/* Background ambient glows */}
-      <div className="absolute top-1/4 left-1/10 w-96 h-96 bg-gold/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/10 w-96 h-96 bg-gold/5 rounded-full blur-[120px] pointer-events-none" />
+    <section
+      id="customer-favorites"
+      ref={ref}
+      className="relative w-full py-24 sm:py-32 bg-[#F7F6F3] overflow-hidden"
+    >
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        {/* Section Header — Centered Serif Title & Sublink */}
+        <div className="text-center mb-16 sm:mb-20">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8 }}
+            className="font-heading text-3xl sm:text-4xl md:text-5xl text-[#1A2024] font-normal tracking-[0.14em] uppercase mb-4"
+          >
+            Customer Favorites
+          </motion.h2>
 
-      <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <span className="text-gold text-sm font-semibold tracking-[0.2em] uppercase">
-            Signature Scents
-          </span>
-          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 mb-6">
-            Featured <span className="gradient-text">Fragrances</span>
-          </h2>
-          <p className="text-gray max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
-            A handpicked selection of our most exquisite perfumes, rare Arabian attars, and premium gift sets.
-          </p>
-          <div className="luxury-divider max-w-xs mx-auto mt-8" />
-        </motion.div>
-
-        {/* Products Grid */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
-          {featuredProducts.map((product) => (
-            <div
-              key={product.id}
-              className="luxury-card overflow-hidden group flex flex-col h-full bg-dark"
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.15 }}
+          >
+            <a
+              href="#collections"
+              className="fleur-link group text-xs tracking-[0.2em] text-[#5A646B] hover:text-[#1A2024]"
             >
-              {/* Image Wrap */}
-              <div className="relative aspect-square w-full overflow-hidden bg-dark border-b border-white/5">
-                {/* Floating Tag */}
-                {product.tag && (
-                  <div className="absolute top-4 left-4 z-20 glass px-3 py-1 rounded-full border border-gold/20 flex items-center gap-1.5 animate-pulse-gold">
-                    <Sparkles className="text-gold" size={10} />
-                    <span className="text-gold-light text-[10px] font-semibold tracking-wider uppercase">
-                      {product.tag}
-                    </span>
-                  </div>
-                )}
+              <span>ALL BESTSELLERS HERE</span>
+              <ArrowRight
+                size={14}
+                className="transition-transform duration-300 group-hover:translate-x-1"
+              />
+            </a>
+          </motion.div>
+        </div>
 
-                {/* Product Image */}
+        {/* 3-Column Product Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 sm:gap-8 lg:gap-12">
+          {CUSTOMER_FAVORITES.map((product, idx) => (
+            <motion.div
+              key={product.id}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.2 + idx * 0.15 }}
+              className="group flex flex-col items-center text-center"
+            >
+              {/* Product Photo — Square with subtle hover zoom */}
+              <div className="relative w-full aspect-square overflow-hidden bg-white mb-6 rounded-none shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-black/[0.04]">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={product.image}
-                  alt={product.name}
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
-                  loading="lazy"
+                  alt={product.title}
+                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
-
-                {/* Glassy overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-dark/65 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
               </div>
 
-              {/* Body Content */}
-              <div className="p-6 sm:p-7 flex flex-col flex-1">
-                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 mb-3">
-                  <div>
-                    <span className="text-gold text-[10px] font-semibold tracking-widest uppercase block mb-1">
-                      {product.category}
-                    </span>
-                    <h4 className="text-white text-xl font-heading font-semibold group-hover:text-gold-light transition-colors duration-500">
-                      {product.name}
-                    </h4>
-                  </div>
-                  <span className="text-gold-light font-medium text-sm whitespace-nowrap sm:ml-2">
-                    {product.priceRange}
+              {/* Title */}
+              <h3 className="font-heading text-base sm:text-lg tracking-[0.12em] uppercase font-normal text-[#1A2024] mb-1.5">
+                {product.title}
+              </h3>
+
+              {/* Volume / Type */}
+              <p className="text-xs tracking-[0.12em] text-[#8E98A0] uppercase mb-2">
+                {product.type} &nbsp;·&nbsp; {product.size}
+              </p>
+
+              {/* Price */}
+              <div className="flex items-center gap-2 mb-4">
+                <span className="font-heading text-sm sm:text-base text-[#1A2024] font-medium tracking-wide">
+                  {product.price}
+                </span>
+                <span className="text-xs text-[#8E98A0]">
+                  ({product.priceUsd})
+                </span>
+              </div>
+
+              {/* ADD TO CART Link matching reference */}
+              <button
+                onClick={() => handleAddToCart(product)}
+                className="fleur-link text-[11px] tracking-[0.2em] text-[#1A2024] hover:text-warm-gold uppercase py-1 cursor-pointer transition-all"
+              >
+                {addedId === product.id ? (
+                  <span className="inline-flex items-center gap-1.5 text-emerald-700">
+                    <Check size={13} /> ADDED TO CART
                   </span>
-                </div>
-
-                {(() => {
-                  const isExpanded = !!expandedProducts[product.id];
-                  const shouldTruncate = product.description.length > 120;
-                  const displayText = shouldTruncate && !isExpanded
-                    ? `${product.description.substring(0, 110)}...`
-                    : product.description;
-
-                  return (
-                    <p className="text-gray text-xs sm:text-sm leading-relaxed mb-6 flex-1">
-                      {displayText}
-                      {shouldTruncate && (
-                        <button
-                          onClick={() => toggleExpand(product.id)}
-                          className="text-gold hover:text-gold-light font-medium ml-1.5 focus:outline-none transition-colors duration-300 inline-block cursor-pointer font-semibold text-xs tracking-wider"
-                        >
-                          {isExpanded ? "READ LESS" : "READ MORE"}
-                        </button>
-                      )}
-                    </p>
-                  );
-                })()}
-
-                {/* Notes Details */}
-                <div className="bg-white/[0.02] border border-white/5 rounded-xl p-3 mb-6 space-y-1.5 text-[11px] sm:text-xs">
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray font-medium">Top Notes:</span>
-                    <span className="text-white text-right">{product.notes.top}</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray font-medium">Heart Notes:</span>
-                    <span className="text-white text-right">{product.notes.heart}</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray font-medium">Base Notes:</span>
-                    <span className="text-white text-right">{product.notes.base}</span>
-                  </div>
-                </div>
-
-                {/* Action Button */}
-                <a
-                  href={getWhatsAppLink(product.name, product.category)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-outline-gold !py-3 w-full flex items-center justify-center gap-2 group-hover:bg-gold group-hover:text-dark group-hover:border-gold cursor-pointer transition-all duration-300"
-                >
-                  <ShoppingBag size={14} />
-                  <span>Inquire / Order Now</span>
-                </a>
-              </div>
-            </div>
+                ) : (
+                  "ADD TO CART"
+                )}
+              </button>
+            </motion.div>
           ))}
-        </motion.div>
-
-        {/* View All Collections Button */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-center mt-16"
-        >
-          <Link
-            href="/collections"
-            className="inline-flex items-center gap-2 btn-gold text-base"
-          >
-            <span>Explore Full Collections</span>
-            <ArrowRight size={18} />
-          </Link>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

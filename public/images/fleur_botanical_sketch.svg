@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" fill="none" stroke="#687782" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.22">
+  <!-- Magnolia Bloom Fine Line Illustration -->
+  <path d="M250 350 C240 380, 220 420, 200 450" stroke-width="2.5" stroke="#556470" />
+  <path d="M200 450 C210 420, 240 390, 270 380" stroke-width="1.8" stroke="#556470" />
+  
+  <!-- Central Petal -->
+  <path d="M250 350 C230 290, 210 220, 235 150 C245 125, 255 125, 265 150 C290 220, 270 290, 250 350 Z" />
+  <path d="M250 150 L250 330" stroke-dasharray="2 4" />
+
+  <!-- Left Inner Petal -->
+  <path d="M230 330 C190 290, 160 230, 175 170 C185 140, 210 160, 230 200 C240 230, 235 280, 230 330 Z" />
+  <path d="M190 200 C205 240, 215 280, 225 320" stroke-dasharray="2 4" />
+
+  <!-- Right Inner Petal -->
+  <path d="M270 330 C310 290, 340 230, 325 170 C315 140, 290 160, 270 200 C260 230, 265 280, 270 330 Z" />
+  <path d="M310 200 C295 240, 285 280, 275 320" stroke-dasharray="2 4" />
+
+  <!-- Left Outer Petal -->
+  <path d="M210 340 C150 310, 110 260, 105 210 C100 170, 130 180, 160 220 C180 250, 200 300, 210 340 Z" />
+
+  <!-- Right Outer Petal -->
+  <path d="M290 340 C350 310, 390 260, 395 210 C400 170, 370 180, 340 220 C320 250, 300 300, 290 340 Z" />
+
+  <!-- Base Sepal Details -->
+  <path d="M235 350 C215 370, 195 380, 175 375 C185 360, 210 350, 235 350 Z" />
+  <path d="M265 350 C285 370, 305 380, 325 375 C315 360, 290 350, 265 350 Z" />
+
+  <!-- Delicate Stamen Lines -->
+  <path d="M245 280 Q240 250 242 220" />
+  <circle cx="242" cy="218" r="1.5" fill="#687782" />
+  <path d="M255 280 Q260 250 258 220" />
+  <circle cx="258" cy="218" r="1.5" fill="#687782" />
+  <path d="M250 275 L250 215" />
+  <circle cx="250" cy="213" r="1.5" fill="#687782" />
+</svg>

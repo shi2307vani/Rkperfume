@@ -17,7 +17,6 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // In production, this would submit to an API
     setIsSubmitted(true);
     setTimeout(() => {
       setIsSubmitted(false);
@@ -32,7 +31,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="section-dark py-24 sm:py-32">
+    <section id="contact" className="section-charcoal py-24 sm:py-32">
       <div ref={ref} className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -41,18 +40,17 @@ export default function Contact() {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <span className="text-gold text-sm font-semibold tracking-[0.2em] uppercase">
+          <span className="text-warm-gold text-xs font-medium tracking-[0.3em] uppercase">
             Get in Touch
           </span>
-          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 mb-6">
-            Contact{" "}
-            <span className="gradient-text">Us</span>
+          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl mt-4 mb-6 text-text-on-dark tracking-tight">
+            Contact <span className="italic">Us</span>
           </h2>
-          <p className="text-gray max-w-xl mx-auto text-base sm:text-lg">
+          <p className="text-text-muted-dark max-w-xl mx-auto text-base sm:text-lg">
             Have a question about a fragrance? Want to place a bulk order?
             We&apos;d love to hear from you.
           </p>
-          <div className="luxury-divider max-w-xs mx-auto mt-8" />
+          <div className="w-12 h-[1px] bg-warm-gold/40 mx-auto mt-8" />
         </motion.div>
 
         {/* Contact Form */}
@@ -61,7 +59,7 @@ export default function Contact() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
-          <div className="luxury-card p-8 sm:p-10 gold-glow relative overflow-hidden">
+          <div className="card-charcoal p-8 sm:p-10 relative overflow-hidden">
             {/* Success state */}
             {isSubmitted ? (
               <motion.div
@@ -69,11 +67,11 @@ export default function Contact() {
                 animate={{ opacity: 1, scale: 1 }}
                 className="text-center py-12"
               >
-                <CheckCircle className="text-gold mx-auto mb-4" size={48} />
-                <h3 className="text-white text-xl font-heading font-semibold mb-2">
+                <CheckCircle className="text-warm-gold mx-auto mb-4" size={48} />
+                <h3 className="text-text-on-dark text-xl font-heading font-semibold mb-2">
                   Thank You!
                 </h3>
-                <p className="text-gray">
+                <p className="text-text-muted-dark">
                   We&apos;ve received your inquiry. We&apos;ll get back to you
                   shortly.
                 </p>
@@ -83,7 +81,7 @@ export default function Contact() {
                 {/* Name */}
                 <div className="relative">
                   <User
-                    className="absolute left-4 top-1/2 -translate-y-1/2 text-gold/40"
+                    className="absolute left-4 top-1/2 -translate-y-1/2 text-warm-gold/40"
                     size={18}
                   />
                   <input
@@ -93,14 +91,14 @@ export default function Contact() {
                     onChange={handleChange}
                     placeholder="Your Name"
                     required
-                    className="w-full bg-dark-lighter border border-dark-border rounded-xl py-3.5 pl-12 pr-4 text-white placeholder:text-gray/50 focus:border-gold/40 focus:outline-none focus:ring-1 focus:ring-gold/20 transition-all duration-300"
+                    className="w-full bg-charcoal-light border border-border-dark rounded-xl py-3.5 pl-12 pr-4 text-text-on-dark placeholder:text-text-muted-dark/50 focus:border-warm-gold/40 focus:outline-none focus:ring-1 focus:ring-warm-gold/20 transition-all duration-300"
                   />
                 </div>
 
                 {/* Phone */}
                 <div className="relative">
                   <Phone
-                    className="absolute left-4 top-1/2 -translate-y-1/2 text-gold/40"
+                    className="absolute left-4 top-1/2 -translate-y-1/2 text-warm-gold/40"
                     size={18}
                   />
                   <input
@@ -110,14 +108,14 @@ export default function Contact() {
                     onChange={handleChange}
                     placeholder="Phone Number"
                     required
-                    className="w-full bg-dark-lighter border border-dark-border rounded-xl py-3.5 pl-12 pr-4 text-white placeholder:text-gray/50 focus:border-gold/40 focus:outline-none focus:ring-1 focus:ring-gold/20 transition-all duration-300"
+                    className="w-full bg-charcoal-light border border-border-dark rounded-xl py-3.5 pl-12 pr-4 text-text-on-dark placeholder:text-text-muted-dark/50 focus:border-warm-gold/40 focus:outline-none focus:ring-1 focus:ring-warm-gold/20 transition-all duration-300"
                   />
                 </div>
 
                 {/* Email */}
                 <div className="relative">
                   <Mail
-                    className="absolute left-4 top-1/2 -translate-y-1/2 text-gold/40"
+                    className="absolute left-4 top-1/2 -translate-y-1/2 text-warm-gold/40"
                     size={18}
                   />
                   <input
@@ -126,14 +124,14 @@ export default function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="Email Address"
-                    className="w-full bg-dark-lighter border border-dark-border rounded-xl py-3.5 pl-12 pr-4 text-white placeholder:text-gray/50 focus:border-gold/40 focus:outline-none focus:ring-1 focus:ring-gold/20 transition-all duration-300"
+                    className="w-full bg-charcoal-light border border-border-dark rounded-xl py-3.5 pl-12 pr-4 text-text-on-dark placeholder:text-text-muted-dark/50 focus:border-warm-gold/40 focus:outline-none focus:ring-1 focus:ring-warm-gold/20 transition-all duration-300"
                   />
                 </div>
 
                 {/* Message */}
                 <div className="relative">
                   <MessageSquare
-                    className="absolute left-4 top-4 text-gold/40"
+                    className="absolute left-4 top-4 text-warm-gold/40"
                     size={18}
                   />
                   <textarea
@@ -143,14 +141,14 @@ export default function Contact() {
                     placeholder="Your Message"
                     required
                     rows={4}
-                    className="w-full bg-dark-lighter border border-dark-border rounded-xl py-3.5 pl-12 pr-4 text-white placeholder:text-gray/50 focus:border-gold/40 focus:outline-none focus:ring-1 focus:ring-gold/20 transition-all duration-300 resize-none"
+                    className="w-full bg-charcoal-light border border-border-dark rounded-xl py-3.5 pl-12 pr-4 text-text-on-dark placeholder:text-text-muted-dark/50 focus:border-warm-gold/40 focus:outline-none focus:ring-1 focus:ring-warm-gold/20 transition-all duration-300 resize-none"
                   />
                 </div>
 
                 {/* Submit */}
                 <motion.button
                   type="submit"
-                  className="w-full btn-gold flex items-center justify-center gap-2 text-base !py-4"
+                  className="w-full btn-primary-light flex items-center justify-center gap-2 text-base !py-4"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
