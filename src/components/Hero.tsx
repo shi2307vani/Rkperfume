@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default function Hero() {
   const ref = useRef(null);
@@ -52,22 +53,29 @@ export default function Hero() {
               of Spring
             </motion.h1>
 
-            {/* Minimalist Underlined Link matching reference: "NEW SCENTS HERE →" */}
+            {/* Minimalist Underlined Link to Collections and Boutique */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.25, ease: "easeOut" }}
+              className="flex flex-wrap items-center gap-6"
             >
-              <a
-                href="#customer-favorites"
+              <Link
+                href="/collections"
                 className="fleur-link group text-xs sm:text-[13px] tracking-[0.2em] font-medium text-[#1A2024] hover:text-warm-gold inline-flex items-center gap-2"
               >
-                <span>NEW SCENTS HERE</span>
+                <span>EXPLORE COLLECTIONS</span>
                 <ArrowRight
                   size={15}
                   className="transition-transform duration-300 group-hover:translate-x-1.5"
                 />
-              </a>
+              </Link>
+              <Link
+                href="/contact"
+                className="text-xs sm:text-[13px] tracking-[0.2em] font-medium text-[#7A848D] hover:text-[#1A2024] transition-colors"
+              >
+                VISIT BOUTIQUE
+              </Link>
             </motion.div>
           </div>
 

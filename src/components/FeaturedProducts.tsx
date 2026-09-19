@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { ArrowRight, Check } from "lucide-react";
 import { BUSINESS_INFO } from "@/lib/constants";
+import Link from "next/link";
 
 const CUSTOMER_FAVORITES = [
   {
@@ -74,8 +75,8 @@ export default function FeaturedProducts() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.15 }}
           >
-            <a
-              href="#collections"
+            <Link
+              href="/collections"
               className="fleur-link group text-xs tracking-[0.2em] text-[#5A646B] hover:text-[#1A2024]"
             >
               <span>ALL BESTSELLERS HERE</span>
@@ -83,7 +84,7 @@ export default function FeaturedProducts() {
                 size={14}
                 className="transition-transform duration-300 group-hover:translate-x-1"
               />
-            </a>
+            </Link>
           </motion.div>
         </div>
 
@@ -142,6 +143,17 @@ export default function FeaturedProducts() {
               </button>
             </motion.div>
           ))}
+        </div>
+
+        {/* View All Collections Button */}
+        <div className="mt-16 sm:mt-20 text-center">
+          <Link
+            href="/collections"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-[#1A2024] text-[#F7F6F3] text-xs tracking-[0.22em] uppercase font-medium hover:bg-black hover:gap-4 transition-all shadow-sm"
+          >
+            <span>Explore All Fragrances & Collections</span>
+            <ArrowRight size={14} />
+          </Link>
         </div>
       </div>
     </section>

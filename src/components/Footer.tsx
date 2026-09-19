@@ -13,13 +13,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-10 mb-16">
           {/* Brand Story */}
           <div className="lg:col-span-1">
-            <Link href="/" className="inline-block mb-4">
-              <span className="font-heading text-2xl tracking-[0.2em] uppercase text-[#1A2024]">
-                FLEUR
-              </span>
-              <span className="block text-[10px] tracking-[0.25em] text-[#8E98A0] uppercase font-sans mt-0.5">
-                Haute Parfumerie Pune
-              </span>
+            <Link href="/" className="inline-block mb-4 group">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/logo_header.png"
+                alt="ESSPRIVE"
+                className="h-10 sm:h-12 w-auto object-contain transition-transform group-hover:scale-105"
+              />
             </Link>
             <p className="text-[#5A646B] text-xs sm:text-sm leading-relaxed mb-6 font-light">
               Crafted in the spirit of French haute parfumerie, offering curated luxury scents, rare Arabian attars, and bespoke imported fragrances in Tulshibaug, Pune.
@@ -43,14 +43,15 @@ export default function Footer() {
           {/* Quick Links */}
           <div>
             <h4 className="font-heading text-sm tracking-[0.18em] uppercase text-[#1A2024] mb-5 font-normal">
-              Collections
+              Explore Pages
             </h4>
             <ul className="space-y-2.5 text-xs tracking-[0.1em] text-[#5A646B]">
-              <li><a href="#customer-favorites" className="hover:text-[#1A2024] transition-colors">Customer Favorites</a></li>
-              <li><a href="#discover-new" className="hover:text-[#1A2024] transition-colors">Air Collection</a></li>
-              <li><a href="#collections" className="hover:text-[#1A2024] transition-colors">Arabian Attars</a></li>
-              <li><a href="#collections" className="hover:text-[#1A2024] transition-colors">Luxury Designer Parfums</a></li>
-              <li><a href="#collections" className="hover:text-[#1A2024] transition-colors">Artisanal Gift Sets</a></li>
+              <li><Link href="/" className="hover:text-[#1A2024] transition-colors">Home Experience</Link></li>
+              <li><Link href="/collections" className="hover:text-[#1A2024] transition-colors">All Collections & Shop</Link></li>
+              <li><Link href="/special-offers" className="hover:text-[#1A2024] transition-colors">Special Offers & Air Series</Link></li>
+              <li><Link href="/about" className="hover:text-[#1A2024] transition-colors">About & Perfume Guide</Link></li>
+              <li><Link href="/reviews" className="hover:text-[#1A2024] transition-colors">Customer Reviews</Link></li>
+              <li><Link href="/contact" className="hover:text-[#1A2024] transition-colors">Contact & Boutique Visit</Link></li>
             </ul>
           </div>
 

@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default function DiscoverNew() {
   const ref = useRef(null);
@@ -82,13 +83,13 @@ export default function DiscoverNew() {
               </p>
 
               {/* MORE DETAILS Link */}
-              <a
-                href="#collections"
+              <Link
+                href="/collections"
                 className="fleur-link text-xs tracking-[0.2em] text-[#1A2024] hover:text-warm-gold uppercase py-1"
               >
-                <span>MORE DETAILS</span>
+                <span>EXPLORE ALL COLLECTIONS</span>
                 <ArrowRight size={14} />
-              </a>
+              </Link>
             </div>
           </motion.div>
         </div>
