@@ -2,8 +2,10 @@
 
 import Hero from "@/components/Hero";
 import FeaturedProducts from "@/components/FeaturedProducts";
+import PerfumeFinder from "@/components/PerfumeFinder";
+import VideoShowcase from "@/components/VideoShowcase";
 import Link from "next/link";
-import { ArrowRight, Star, Sparkles, MapPin, Clock, ShieldCheck, HeartHandshake, Award } from "lucide-react";
+import { ArrowRight, Star, Sparkles, MapPin, Clock, ShieldCheck, HeartHandshake, Award, Gift, Truck, CheckCircle } from "lucide-react";
 import { BUSINESS_INFO, TESTIMONIALS } from "@/lib/constants";
 
 export default function Home() {
@@ -14,10 +16,82 @@ export default function Home() {
       {/* 1. Hero Showcase */}
       <Hero />
 
-      {/* 2. Customer Favorites (Curated Signature Selection) with link to /collections */}
+      {/* 2. Cinematic Video Experience */}
+      <VideoShowcase />
+
+      {/* 3. Interactive Scent Finder Tool (ORANGE Priority) */}
+      <PerfumeFinder />
+
+      {/* 3. Customer Favorites (Curated Signature Selection) with link to /collections */}
       <FeaturedProducts />
 
-      {/* 3. Maison Story & Craftsmanship Teaser */}
+      {/* 4. Promoted Discovery Set ("Try Before You Buy" - ORANGE Priority) */}
+      <section className="py-16 sm:py-20 bg-[#1A2024] text-white">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <div className="lg:col-span-4 relative flex items-center justify-center">
+              <div className="relative aspect-square w-full max-w-[320px] bg-[#22292F] border border-white/10 p-6 flex items-center justify-center">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/gift_premium.png"
+                  alt="RK Perfume 4 x 20ml Discovery Box"
+                  className="w-full h-full object-contain drop-shadow-lg"
+                />
+                <span className="absolute top-4 right-4 px-2.5 py-1 bg-[#C5A059] text-[#1A2024] text-[10px] uppercase tracking-widest font-bold">
+                  Just ₹999
+                </span>
+              </div>
+            </div>
+
+            <div className="lg:col-span-8">
+              <span className="text-xs uppercase tracking-[0.25em] text-[#C5A059] font-medium block mb-2">
+                Try Before You Buy &middot; 4 x 20ml Box
+              </span>
+              <h2 className="font-heading text-2xl sm:text-4xl uppercase tracking-wide font-normal leading-tight mb-4">
+                Test 4 Luxury Scents at Home with Zero Risk
+              </h2>
+              <p className="text-sm sm:text-base text-[#B8C2C9] leading-relaxed font-light mb-6 max-w-2xl">
+                Unsure which fragrance matches your skin chemistry? Order our bestselling 4 x 20ml Discovery Box for ₹999. Wear them to work, evenings, and workouts for two weeks before committing to a full 100ml bottle.
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-[#E1E6EA] mb-8 font-light">
+                <div className="flex items-center gap-2">
+                  <CheckCircle size={15} className="text-[#C5A059]" />
+                  <span>4 Handpicked 20ml Spray Flacons</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Truck size={15} className="text-[#C5A059]" />
+                  <span>Free Pan-India Delivery Included</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Gift size={15} className="text-[#C5A059]" />
+                  <span>Luxury Gold Presentation Box</span>
+                </div>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-4">
+                <Link
+                  href="/collections"
+                  className="px-8 py-3.5 bg-[#C5A059] text-[#1A2024] text-xs uppercase tracking-[0.2em] font-semibold hover:bg-[#b08c45] transition-colors inline-flex items-center gap-2"
+                >
+                  <span>Order Discovery Box (₹999)</span>
+                  <ArrowRight size={14} />
+                </Link>
+                <a
+                  href={BUSINESS_INFO.social.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-6 py-3.5 border border-white/20 text-white text-xs uppercase tracking-[0.18em] font-medium hover:bg-white/10 transition-colors"
+                >
+                  Customize Your 4 Scents via WhatsApp
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Maison Story & Craftsmanship Teaser */}
       <section className="py-20 sm:py-28 bg-[#F2EFE9] border-y border-black/[0.05] overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -89,54 +163,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. Special Offers & Limited Editions Spotlight Teaser */}
-      <section className="py-20 sm:py-24 bg-[#F7F6F3]">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="bg-white border border-black/[0.08] shadow-sm p-8 sm:p-12 lg:p-16 relative overflow-hidden">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-              <div className="lg:col-span-8">
-                <span className="text-[10px] sm:text-xs tracking-[0.25em] uppercase text-warm-gold font-medium block mb-2">
-                  Special Privilege
-                </span>
-                <h2 className="font-heading text-2xl sm:text-4xl text-[#1A2024] font-normal uppercase leading-tight">
-                  Discover Our Limited Seasonal Editions & Gift Boxes
-                </h2>
-                <p className="text-[#5A646B] text-xs sm:text-sm mt-4 max-w-2xl font-light leading-relaxed">
-                  Explore our celebrated Air Collection, festive fragrance bundles, and discovery coffrets curated at privileged boutique prices.
-                </p>
-                <div className="mt-8 flex flex-wrap items-center gap-4">
-                  <Link
-                    href="/special-offers"
-                    className="inline-flex items-center gap-2.5 px-7 py-3.5 bg-[#1A2024] text-[#F7F6F3] text-xs tracking-[0.2em] uppercase font-medium hover:bg-black transition-colors"
-                  >
-                    <span>View Special Offers</span>
-                    <ArrowRight size={13} />
-                  </Link>
-                  <Link
-                    href="/collections"
-                    className="text-xs tracking-[0.18em] uppercase font-medium text-[#7A848D] hover:text-[#1A2024] transition-colors ml-2"
-                  >
-                    Browse 50+ Fragrances
-                  </Link>
-                </div>
-              </div>
-
-              <div className="lg:col-span-4 flex justify-center">
-                <div className="w-48 sm:w-56 aspect-[3/4] bg-[#F7F6F3] border border-black/[0.06] p-4 flex items-center justify-center">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src="/images/fleur_product_air.png"
-                    alt="Air Collection"
-                    className="max-h-full max-w-full object-contain drop-shadow-md"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 5. Customer Reviews Teaser */}
+      {/* 6. Customer Reviews & Google Rating */}
       <section className="py-20 sm:py-24 bg-[#F2EFE9] border-t border-black/[0.05]">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-12 gap-4">
@@ -145,19 +172,29 @@ export default function Home() {
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} size={14} className="fill-warm-gold" />
                 ))}
-                <span className="text-xs font-semibold text-[#1A2024] ml-1.5">4.9 / 5.0 Rating</span>
+                <span className="text-xs font-semibold text-[#1A2024] ml-1.5">4.9 / 5.0 Rating (350+ Google Reviews)</span>
               </div>
               <h2 className="font-heading text-2xl sm:text-4xl text-[#1A2024] uppercase font-normal">
                 Loved by Fragrance Enthusiasts
               </h2>
             </div>
-            <Link
-              href="/reviews"
-              className="inline-flex items-center gap-2 text-xs tracking-[0.18em] uppercase font-semibold text-[#1A2024] hover:text-warm-gold transition-colors"
-            >
-              <span>Read All Reviews</span>
-              <ArrowRight size={13} />
-            </Link>
+            <div className="flex items-center gap-4">
+              <a
+                href={BUSINESS_INFO.social.googleMaps}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs tracking-[0.16em] uppercase font-medium text-[#C5A059] hover:underline"
+              >
+                View on Google Maps &rarr;
+              </a>
+              <Link
+                href="/reviews"
+                className="inline-flex items-center gap-2 text-xs tracking-[0.18em] uppercase font-semibold text-[#1A2024] hover:text-warm-gold transition-colors"
+              >
+                <span>Read All Reviews</span>
+                <ArrowRight size={13} />
+              </Link>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -189,7 +226,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 6. Boutique Visit & Concierge Teaser */}
+      {/* 7. Boutique Visit & Concierge Teaser */}
       <section className="py-20 sm:py-24 bg-[#F7F6F3]">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="bg-[#1A2024] text-[#F7F6F3] p-8 sm:p-14 lg:p-16">
@@ -241,4 +278,3 @@ export default function Home() {
     </>
   );
 }
-

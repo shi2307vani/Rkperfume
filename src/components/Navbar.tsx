@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Search, User, ShoppingBag, Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone, MessageCircle } from "lucide-react";
 import { BUSINESS_INFO } from "@/lib/constants";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -10,9 +10,9 @@ import { usePathname } from "next/navigation";
 const NAV_ITEMS = [
   { label: "HOME", href: "/" },
   { label: "COLLECTIONS", href: "/collections" },
-  { label: "SPECIAL OFFERS", href: "/special-offers" },
   { label: "ABOUT", href: "/about" },
   { label: "REVIEWS", href: "/reviews" },
+  { label: "GUIDES", href: "/blog" },
   { label: "CONTACT", href: "/contact" },
 ];
 
@@ -77,41 +77,24 @@ export default function Navbar() {
               })}
             </div>
 
-            {/* Right Action Icons — Search, User, WhatsApp Cart */}
-            <div className="flex items-center gap-4 sm:gap-6">
-              <Link
-                href="/collections"
-                aria-label="Search Fragrances in Collections"
-                className="text-[#1A2024]/80 hover:text-[#1A2024] transition-colors duration-200"
-              >
-                <Search size={18} strokeWidth={1.5} />
-              </Link>
+            {/* Right Desktop CTA */}
+            <div className="hidden lg:flex items-center gap-4">
               <a
-                href={`tel:${BUSINESS_INFO.phone}`}
-                aria-label="Contact Boutique"
-                className="text-[#1A2024]/80 hover:text-[#1A2024] transition-colors duration-200 hidden sm:block"
-                title={`Call: ${BUSINESS_INFO.phone}`}
-              >
-                <User size={18} strokeWidth={1.5} />
-              </a>
-              <a
-                href={`${BUSINESS_INFO.social.whatsapp}?text=Hi! I would like to inquire about your perfume collection.`}
+                href={BUSINESS_INFO.social.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="WhatsApp Concierge"
-                className="relative text-[#1A2024]/80 hover:text-[#1A2024] transition-colors duration-200"
-                title="Inquire on WhatsApp"
+                className="inline-flex items-center gap-2 text-[11px] tracking-[0.16em] uppercase px-4 py-2 border border-black/20 hover:border-black text-[#1A2024] font-medium transition-all bg-white shadow-xs"
               >
-                <ShoppingBag size={18} strokeWidth={1.5} />
-                <span className="absolute -top-1 -right-1.5 w-4 h-4 rounded-full bg-[#1A2024] text-[#F7F6F3] text-[9px] font-sans flex items-center justify-center font-medium">
-                  5
-                </span>
+                <MessageCircle size={13} className="text-emerald-700" />
+                <span>WhatsApp</span>
               </a>
+            </div>
 
-              {/* Mobile Menu Toggle */}
+            {/* Mobile Menu Toggle */}
+            <div className="flex items-center lg:hidden">
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="lg:hidden p-1.5 text-[#1A2024] hover:bg-black/5 rounded"
+                className="p-1.5 text-[#1A2024] hover:bg-black/5 rounded"
                 aria-label="Toggle navigation menu"
               >
                 {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
@@ -129,39 +112,36 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-50 lg:hidden"
+            className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm lg:hidden"
+            onClick={() => setIsMobileMenuOpen(false)}
           >
-            <div
-              className="absolute inset-0 bg-black/50 backdrop-blur-sm"
-              onClick={() => setIsMobileMenuOpen(false)}
-            />
             <motion.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 25, stiffness: 220 }}
-              className="absolute right-0 top-0 h-full w-80 max-w-[85vw] bg-[#F7F6F3] shadow-2xl p-6 pt-20 flex flex-col justify-between border-l border-black/[0.08]"
+              transition={{ type: "spring", damping: 30, stiffness: 300 }}
+              className="absolute right-0 top-0 bottom-0 w-4/5 max-w-sm bg-[#F7F6F3] p-6 shadow-2xl flex flex-col justify-between border-l border-black/10"
+              onClick={(e) => e.stopPropagation()}
             >
-              <div className="space-y-4">
-                <div className="pb-4 border-b border-black/[0.08] flex items-center justify-between">
-                  <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>
+              <div>
+                <div className="flex items-center justify-between pb-6 border-b border-black/10">
+                  <div className="flex items-center">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src="/images/logo_header.png"
                       alt="ESSPRIVE"
                       className="h-9 w-auto object-contain"
                     />
-                  </Link>
+                  </div>
                   <button
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="p-1 text-[#1A2024] hover:bg-black/5 rounded"
-                    aria-label="Close menu"
+                    className="p-2 text-[#1A2024] hover:bg-black/5 rounded"
                   >
                     <X size={20} />
                   </button>
                 </div>
 
-                <div className="space-y-1.5 pt-2">
+                <div className="flex flex-col gap-4 py-8">
                   {NAV_ITEMS.map((item) => {
                     const isActive =
                       item.href === "/"
@@ -173,9 +153,9 @@ export default function Navbar() {
                         key={item.label}
                         href={item.href}
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className={`block px-3.5 py-3 text-xs tracking-[0.2em] font-medium uppercase transition-colors rounded ${isActive
-                            ? "bg-[#1A2024] text-[#F7F6F3]"
-                            : "text-[#1A2024] hover:bg-black/5 hover:text-warm-gold"
+                        className={`text-sm tracking-[0.18em] py-2 border-b border-black/[0.04] uppercase transition-colors ${isActive
+                            ? "font-semibold text-[#1A2024]"
+                            : "font-normal text-[#5A646B] hover:text-[#1A2024]"
                           }`}
                       >
                         {item.label}
@@ -185,13 +165,20 @@ export default function Navbar() {
                 </div>
               </div>
 
-              <div className="pt-6 border-t border-black/[0.08] space-y-3">
+              <div className="space-y-4 pt-6 border-t border-black/10">
                 <a
                   href={`tel:${BUSINESS_INFO.phone}`}
-                  className="flex items-center justify-center gap-2 w-full py-3 bg-[#1A2024] text-[#F7F6F3] text-xs tracking-[0.15em] uppercase font-medium rounded hover:bg-black transition-colors"
+                  className="flex items-center justify-center gap-2 w-full py-3 bg-[#1A2024] text-white text-xs uppercase tracking-[0.16em] font-medium"
                 >
-                  <Phone size={14} />
-                  Call Boutique
+                  <Phone size={14} /> Call Boutique
+                </a>
+                <a
+                  href={BUSINESS_INFO.social.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 w-full py-3 bg-white border border-black/20 text-[#1A2024] text-xs uppercase tracking-[0.16em] font-medium"
+                >
+                  <MessageCircle size={14} className="text-emerald-700" /> WhatsApp Concierge
                 </a>
               </div>
             </motion.div>

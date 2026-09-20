@@ -28,7 +28,7 @@ export default function DiscoverNew() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/images/fleur_editorial_portrait.jpg"
-                alt="Fleur Spring Campaign Editorial Model"
+                alt="RK Perfume Editorial Campaign"
                 className="w-full h-full object-cover object-center"
               />
             </div>
@@ -67,7 +67,7 @@ export default function DiscoverNew() {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/images/fleur_product_air.jpg"
-                  alt="Air Collection — Niche French Eau de Parfum"
+                  alt="Artisanal Collection — RK Perfume Pune"
                   className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                 />
               </div>

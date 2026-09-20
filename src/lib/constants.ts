@@ -1,7 +1,6 @@
 export const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "Collections", href: "/collections" },
-  { label: "Special Offers", href: "/special-offers" },
   { label: "About", href: "/about" },
   { label: "Reviews", href: "/reviews" },
   { label: "Contact", href: "/contact" },
@@ -300,7 +299,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10762456531254",
-    name: "Inspired by L@tt@fa Kh@mrah Waha Perfume",
+    name: "Inspired by Lattafa Khamrah Qahwa",
     category: "Luxury Perfumes",
     priceRange: "₹849 - ₹1,099",
     description: "Khamrah Waha is a Aromatic Aquatic fragrance for women and men. This is a new fragrance. The nose behind this fragrance is Jordi Fernández. Top notes are Bergamot, Yuzu, Ginger and Juniper; middle notes are Cucumber, Sea Salt, Sage and Iris; base notes are Vanilla, Tonka Bean, Musk, Akigalawood and Ambrofix™.",
@@ -314,7 +313,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10760930820406",
-    name: "Luxury Perfume Gift Set For Him - 4 x 20ml",
+    name: "Gentlemen Discovery Box - 4 x 20ml",
     category: "Gift Sets",
     priceRange: "₹999",
     description: "Mystic Timber is a Floral Woody Musk fragrance for women and men. Top notes are Italian Cypress, Myrtle and Rose; middle notes are Sandalwood and Cedar; base notes are Brazilian Rosewood, Spices, Amber and White Musk. Guilty Desire is a Woody Aromatic fragrance for men & Women. Top notes are Lavender and Amalfi Lemon; middle note is African Orange flower; base notes are Virginia Cedar, Patchouli and Vanilla. Aqua Rush is a Aromatic Aquatic fragrance for men and women. Top notes are Sea water, Lavender, Mint, Green Notes, Rosemary, Calone and Coriander; middle notes are Sandalwood, Geranium, Neroli and Jasmine; base notes are Musk, Tobacco, Oakmoss, Cedar and Amber. Main character is a Aromatic Fougere fragrance for men. Top notes are Calabrian bergamot and Pepper; middle notes are Sichuan Pepper, Lavender, Pink Pepper, Vetiver, Patchouli, Geranium and elemi; base notes are Ambroxan, Cedar and Labdanum.",
@@ -327,7 +326,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10760387297590",
-    name: "Luxury Perfume Gift Set For Her - 4 x 20ml",
+    name: "Femme Discovery Box - 4 x 20ml",
     category: "Gift Sets",
     priceRange: "₹999",
     description: "Sweet Seduction for women is a joyful floral perfume. Top note is Mandarin and pepper; middle note is Osmanthus, peony and rose; base note is Patchouli, cedar and leather. Crystal kiss is a Floral Fruity fragrance for women. Top notes are Yuzu, Pomegranate and Ice; middle notes are Peony, Lotus and Magnolia; base notes are Musk, Mahogany and Amber. Golden Veil is a Floral Aldehyde fragrance for women. Top notes are Aldehydes, Ylang-Ylang, Neroli, Bergamot and Lemon; middle notes are Iris, Jasmine, Rose, Orris Root and Lily-of-the-Valley; base notes are Civet, Musk, Amber, Sandalwood, Moss, Vanilla, Vetiver and Patchouli. Sensual Muse is a Amber Floral fragrance for women. Top notes are Orange, Mandarin Orange, Bergamot and Orange Blossom; middle notes are Turkish Rose, Jasmine, Mimosa and Ylang-Ylang; base notes are Patchouli, White Musk, Vanilla, Vetiver, Tonka Bean and Opoponax.",
@@ -340,7 +339,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10758841336118",
-    name: "Vanilla Perfume 100ml - Gourmet Collection",
+    name: "Vanilla Absolute 100ml - Gourmet Collection",
     category: "Imported Fragrances",
     priceRange: "₹999",
     description: "Vanilla is Warm, cozy, and irresistibly addictive. With its soft creamy sweetness, vanilla feels comforting, elegant, and effortlessly inviting, leaving a warm and memorable impression.",
@@ -353,7 +352,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10758667338038",
-    name: "Strawberry Perfume 100ml - Gourmet Collection",
+    name: "Wild Strawberry 100ml - Gourmet Collection",
     category: "Imported Fragrances",
     priceRange: "₹999",
     description: "Strawberry is playful, sweet, and irresistibly charming. It captures the feeling of carefree summer days, juicy fresh berries, and effortless confidence. The scent opens with a bright, fruity burst that feels youthful and uplifting, creating an aura that is both fun and addictive.",
@@ -366,7 +365,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10758654787894",
-    name: "Mango Perfume 100ml - Gourmet Collection",
+    name: "Alphonso Mango 100ml - Gourmet Collection",
     category: "Imported Fragrances",
     priceRange: "₹999",
     description: "Mango perfume feels like pure sunshine captured in a bottle—bright, juicy, and effortlessly uplifting from the very first spray. It opens with the mouthwatering sweetness of perfectlyripe mangoes, bursting with tropical freshness that instantly awakens the senses and lifts your mood. The vibrant fruity notes create a cheerful, energetic aura, reminiscent of warm summer days, golden sunshine, and carefree moments spent under clear blue skies.",
@@ -379,7 +378,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10758154158390",
-    name: "Choco Truffle Perfume 100ml - Gourmet Collection",
+    name: "Choco Truffle 100ml - Gourmet Collection",
     category: "Imported Fragrances",
     priceRange: "₹999",
     description: "Choco Truffle Perfume is the kind of scent that feels like an irresistible dessert wrapped in elegance. Rich notes of creamy chocolate melt into smooth cocoa and velvety sweetness, creating a warm, comforting aura that's both playful and addictive.",
@@ -392,7 +391,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10752064225590",
-    name: "Inspired By CR 7 ( Worn By Cristi@no Ron@ld0 )",
+    name: "Inspired by CR7 (Cristiano Ronaldo)",
     category: "Men's Collection",
     priceRange: "₹849 - ₹1,099",
     description: "CR7 for Men is a Woody Aromatic fragrance for men. The iconic flagship sports fragrance, it combines fresh citrus and aromatic notes with a warm woody base. Modern, energetic and versatile, CR7 is designed for everyday wear and suits both casual and special occasions.",
@@ -419,7 +418,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10672026026294",
-    name: "Gourmet Gift Set - 4 X 20ML",
+    name: "Gourmet Discovery Box - 4 x 20ml",
     category: "Gift Sets",
     priceRange: "₹999",
     description: "Eden Apple is a vibrant gourmand-fruity fragrance with a burst of crisp, juicy apple. Soft sweetness and subtle florals blend seamlessly into warm musks, creating a smooth and long-lasting finish. Pistachio Perfume is a warm, creamy gourmand fragrance with the rich nuttiness of pistachio blended into soft vanilla and gentle musks. Comforting, addictive, and effortlessly elegant, it leaves a smooth, long-lasting trail that feels cozy yet luxurious. Marshmallow Perfume is a cozy, creamy gourmand fragrance that wraps you in delicate sweetness from the first spray. Fluffy marshmallow notes melt into smooth vanilla and soft sugar accords, creating a warm, comforting scent that feels gentle yet irresistible. As it settles, subtle musks add a clean, long-lasting softness that stays close to the skin. Eclaire Perfume is a luscious gourmand fragrance inspired by the irresistible richness of caramel desserts. It opens with smooth caramel sweetness, blended with creamy vanilla and soft milky accords that feel warm and indulgent from the first spray. As the scent settles, gentle amber and subtle musks add depth and a long-lasting, comforting trail.",
@@ -432,7 +431,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10587392934198",
-    name: "Eclaire Perfume 100ml - Gourmet Collection",
+    name: "Caramel Éclair 100ml - Gourmet Collection",
     category: "Imported Fragrances",
     priceRange: "₹999",
     description: "Eclaire Perfume is a luscious gourmand fragrance inspired by the irresistible richness of caramel desserts. It opens with smooth caramel sweetness, blended with creamy vanilla and soft milky accords that feel warm and indulgent from the first spray. As the scent settles, gentle amber and subtle musks add depth and a long-lasting, comforting trail.",
@@ -445,7 +444,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10587392278838",
-    name: "Eden Apple Perfume 100ml - Gourmet Collection",
+    name: "Crisp Apple 100ml - Gourmet Collection",
     category: "Imported Fragrances",
     priceRange: "₹999",
     description: "Eden Apple Perfume is a vibrant gourmand-fruity fragrance that captures the irresistible freshness of a perfectly ripe apple. It opens with a burst of crisp, juicy apple notes that feel bright and mouth-watering. As it unfolds, soft sweetness and subtle floral nuances balance the freshness, while gentle musks and warm undertones create a smooth, long-lasting finish.",
@@ -458,7 +457,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10587337326902",
-    name: "Pistachio Perfume 100ml - Gourmet Collection",
+    name: "Pistachio Gelato 100ml - Gourmet Collection",
     category: "Imported Fragrances",
     priceRange: "₹999",
     description: "Pistachio Perfume is a warm, creamy gourmand fragrance with the rich nuttiness of pistachio blended into soft vanilla and gentle musks. Comforting, addictive, and effortlessly elegant, it leaves a smooth, long-lasting trail that feels cozy yet luxurious.",
@@ -471,7 +470,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10587388477750",
-    name: "Marshmallow Perfume 100ml - Gourmet Collection",
+    name: "Fluffy Marshmallow 100ml - Gourmet Collection",
     category: "Imported Fragrances",
     priceRange: "₹999",
     description: "Marshmallow Perfume is a cozy, creamy gourmand fragrance that wraps you in delicate sweetness from the first spray. Fluffy marshmallow notes melt into smooth vanilla and soft sugar accords, creating a warm, comforting scent that feels gentle yet irresistible. As it settles, subtle musks add a clean, long-lasting softness that stays close to the skin.",
@@ -484,7 +483,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10531183198518",
-    name: "Inspired by Miss D Perfume",
+    name: "Inspired by Miss Dior",
     category: "Luxury Perfumes",
     priceRange: "₹849 - ₹1,099",
     description: "Miss D is a Oriental Floral fragrance for women . Top notes are Iris, Peony and Lily-of-the-Valley; middle notes are Rose, Apricot and Peach; base notes are Vanilla, Musk, Tonka Bean, Sandalwood and Benzoin.",
@@ -498,7 +497,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10531182739766",
-    name: "Inspired by P@co Rabbane Lady Milli0n Perfume",
+    name: "Inspired by Paco Rabanne Lady Million",
     category: "Luxury Perfumes",
     priceRange: "₹849 - ₹1,099",
     description: "Lady Million is a Floral Fruity fragrance for women. Top notes are Raspberry, Neroli and Amalfi Lemon; middle notes are Jasmine, African Orange Flower and Gardenia; base notes are White Honey, Patchouli and Amber.",
@@ -512,7 +511,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10531171795254",
-    name: "Inspired By Ġůccï FL0r@ Gorgeous Magnolia",
+    name: "Inspired by Gucci Flora Gorgeous Magnolia",
     category: "Luxury Perfumes",
     priceRange: "₹849 - ₹1,099",
     description: "Flora Gorgeous Magnolia is a Chypre Floral fragrance for women. Top notes are Dewberry, Coconut and Orange; middle notes are Magnolia, Jasmine Sambac, Ylang-Ylang and Lily of the Valley; base notes are Musk, Patchouli and Blonde Woods",
@@ -540,7 +539,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10522618790198",
-    name: "Inspired By Gucci Flora Gorgeous Jasmine",
+    name: "Inspired by Gucci Flora Gorgeous Jasmine",
     category: "Luxury Perfumes",
     priceRange: "₹849 - ₹1,099",
     description: "Flora Gorgeous Jasmine by Gucci is a Floral fragrance for women. The nose behind this fragrance is Alberto Morillas. Top notes are Italian Mandarin, Bergamot and Black Pepper; middle notes are Jasmine, Jasmine Sambac, Magnolia and Damask Rose; base notes are Australian Sandalwood, Benzoin and Patchouli.",
@@ -554,7 +553,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10521720324406",
-    name: "Inspired By Gucci Flora Gorgeous Orchid",
+    name: "Inspired by Gucci Flora Gorgeous Orchid",
     category: "Luxury Perfumes",
     priceRange: "₹849 - ₹1,099",
     description: "Flora Gorgeous Orchid by Gucci is a Floral Fruity Gourmand fragrance for women. This is a new fragrance. The nose behind this fragrance is Marie Salamagne. Top note is Vanilla; middle note is Vanilla Orchid; base note is Ozonic notes",
@@ -568,7 +567,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10394916978998",
-    name: "Celestial Perfume Imagination",
+    name: "Inspired by Louis Vuitton Imagination",
     category: "Men's Collection",
     priceRange: "₹949 - ₹1,299",
     description: "Imagination by L V is a Citrus Aromatic fragrance for men. Imagination was launched in 2021. The nose behind this fragrance is Jacques Cavallier Belletrud. Top notes are Citron, Calabrian bergamot and Sicilian Orange; middle notes are Tunisian Neroli, Nigerian Ginger and Ceylon Cinnamon; base notes are Chinese Black Tea, Ambroxan, Guaiac Wood and Olibanum.",
@@ -582,7 +581,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10394916946230",
-    name: "Celestial Perfume J'@dore",
+    name: "Inspired by Dior J'adore",
     category: "Luxury Perfumes",
     priceRange: "₹849 - ₹1,099",
     description: "J'ad0re is a Floral Fruity fragrance for women. The nose behind this fragrance is Calice Becker. Top notes are Pear, Melon, Magnolia, Peach, Mandarin Orange and Bergamot; middle notes are Jasmine, Lily-of-the-Valley, Tuberose, Freesia, Rose, Orchid, Violet and Plum; base notes are Musk, Vanilla, Cedar and Blackberry.",
@@ -596,7 +595,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10394916847926",
-    name: "Celestial Perfume Wisal Dahab",
+    name: "Inspired by Ajmal Wisal Dhahab",
     category: "Men's Collection",
     priceRange: "₹849 - ₹1,099",
     description: "Wis@l Dhahab is a Floral Woody Musk fragrance for women and men. Top notes are Pear, Apple, Peach, Grapefruit and Mandarin Orange; middle notes are Rose, Orchid, Jasmine and Geranium; base notes are Sandalwood, Musk, Patchouli and Cedar.",
@@ -610,7 +609,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10394916749622",
-    name: "Celestial Perfume Khamrah",
+    name: "Inspired by Lattafa Khamrah",
     category: "Men's Collection",
     priceRange: "₹849 - ₹1,099",
     description: "Khamrah is a Oriental Spicy fragrance for women and men. This is a new fragrance.Top notes are Cinnamon, Nutmeg and Bergamot; middle notes are Dates, Praline, Tuberose and Mahonial; base notes are Vanilla, Tonka Bean, Amberwood, Myrrh, Benzoin and Akigalawood",
@@ -624,7 +623,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10394916651318",
-    name: "Celestial Perfume Tabacco VN",
+    name: "Inspired by Tom Ford Tobacco Vanille",
     category: "Men's Collection",
     priceRange: "₹949 - ₹1,299",
     description: "Tom Ford reinvents a classic fragrance genre by adding creamy tonka bean, vanilla, cocoa, dry fruit accords and sweet wood sap for a modern, opulent, and almost heady impression that's all man, unless worn by a woman.",
@@ -638,7 +637,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10394916553014",
-    name: "Celestial Perfume Bacc@rat R",
+    name: "Inspired by Baccarat Rouge 540",
     category: "Men's Collection",
     priceRange: "₹949 - ₹1,299",
     description: "BR 540 is a Amber Floral fragrance for women and men. The nose behind this fragrance is Francis Kurkdjian. Top notes are Saffron and Jasmine; middle notes are Amberwood and Ambergris; base notes are Fir Resin and Cedar.",
@@ -652,7 +651,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10394916389174",
-    name: "Celestial Perfume Black Opium",
+    name: "Inspired by YSL Black Opium",
     category: "Luxury Perfumes",
     priceRange: "₹849 - ₹1,099",
     description: "Black Opium is a Amber Vanilla fragrance for women. Top notes are Pear, Pink Pepper and Orange Blossom; middle notes are Coffee, Jasmine, Bitter Almond and Licorice; base notes are Vanilla, Patchouli, Cashmere Wood and Cedar.",
@@ -666,7 +665,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10394916290870",
-    name: "Celestial Perfume Cool Water",
+    name: "Inspired by Davidoff Cool Water",
     category: "Men's Collection",
     priceRange: "₹849 - ₹1,099",
     description: "Cool Water is a Aromatic Aquatic fragrance for men and women. Top notes are Sea water, Lavender, Mint, Green Notes, Rosemary, Calone and Coriander; middle notes are Sandalwood, Geranium, Neroli and Jasmine; base notes are Musk, Tobacco, Oakmoss, Cedar and Amber.",
@@ -680,7 +679,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10394916127030",
-    name: "Celestial Perfume Avnts",
+    name: "Inspired by Creed Aventus",
     category: "Men's Collection",
     priceRange: "₹849 - ₹1,099",
     description: "Aventus is a Chypre Fruity fragrance for men and women. Top notes are Pineapple, Bergamot, Black Currant and Apple; middle notes are Birch, Patchouli, Moroccan Jasmine and Rose; base notes are Musk, oak moss, Ambergris and Vanilla.",
@@ -694,7 +693,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10394916028726",
-    name: "Celestial Perfume DTD",
+    name: "Inspired by Diptyque Tam Dao",
     category: "Men's Collection",
     priceRange: "₹849 - ₹1,099",
     description: "T@m D@o Eau de Toilette is a Floral Woody Musk fragrance for women and men. Top notes are Italian Cypress, Myrtle and Rose; middle notes are Sandalwood and Cedar; base notes are Brazilian Rosewood, Spices, Amber and White Musk.",
@@ -708,7 +707,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10394915930422",
-    name: "Celestial Perfume Guilty",
+    name: "Inspired by Gucci Guilty Pour Homme",
     category: "Men's Collection",
     priceRange: "₹849 - ₹1,099",
     description: "Guilty Pour Homme is a Woody Aromatic fragrance for men & Women. Top notes are Lavender and Amalfi Lemon; middle note is African Orange flower; base notes are Virginia Cedar, Patchouli and Vanilla.",
@@ -722,7 +721,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10394915635510",
-    name: "Celestial Perfume Ombre Leather",
+    name: "Inspired by Tom Ford Ombré Leather",
     category: "Men's Collection",
     priceRange: "₹849 - ₹1,099",
     description: "Ombré Leather is a Leather fragrance for women and men. Top note is Cardamom; middle notes are Leather and Jasmine Sambac; base notes are Amber, Moss and Patchouli.",
@@ -736,7 +735,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10394915537206",
-    name: "Celestial Perfume Ck1",
+    name: "Inspired by Calvin Klein CK One",
     category: "Men's Collection",
     priceRange: "₹849 - ₹1,099",
     description: "One is a Citrus Aromatic fragrance for women and men. Top notes are Lemon, Green Notes, Bergamot, Pineapple, Mandarin Orange, Cardamom and Papaya; middle notes are Lily-of-the-Valley, Jasmine, Violet, Nutmeg, Rose, Orris Root and Freesia; base notes are Green Accord, Musk, Cedar, Sandalwood, Oakmoss, Green Tea and Amber.",
@@ -750,7 +749,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10394915471670",
-    name: "Celestial Perfume Bombshell",
+    name: "Inspired by Victoria's Secret Bombshell",
     category: "Luxury Perfumes",
     priceRange: "₹849 - ₹1,099",
     description: "Bombshell is a Floral Fruity fragrance for women. Top notes are Passionfruit, Grapefruit, Pineapple, Tangerine and Big Strawberry; middle notes are Peony, Vanilla orchid, Red Berries, Jasmine and Lily-of-the-Valley; base notes are Musk, Woody Notes and Oakmoss.",
@@ -764,7 +763,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10394915340598",
-    name: "Celestial Perfume Eros",
+    name: "Inspired by Versace Eros",
     category: "Men's Collection",
     priceRange: "₹849 - ₹1,099",
     description: "Eros is a Aromatic Fougere fragrance for men. Top notes are Mint, Green Apple and Lemon; middle notes are Tonka Bean, Ambroxan and Geranium; base notes are Madagascar Vanilla, Virginian Cedar, Atlas Cedar, Vetiver and Oakmoss.",
@@ -778,7 +777,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10394915209526",
-    name: "Celestial Perfume Oud Wood",
+    name: "Inspired by Tom Ford Oud Wood",
     category: "Men's Collection",
     priceRange: "₹849 - ₹1,099",
     description: "Oud Wood is a Amber Woody fragrance for women and men.",
@@ -792,7 +791,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10394915045686",
-    name: "Celestial Perfume Paradoxe",
+    name: "Inspired by Prada Paradoxe",
     category: "Luxury Perfumes",
     priceRange: "₹849 - ₹1,099",
     description: "Paradoxe is a Oriental Floral fragrance for women. Top notes are Pear, Tangerine and Bergamot; middle notes are Orange Blossom, Neroli Essence, Neroli and Jasmine Sambac; base notes are Bourbon Vanilla, Amber, White Musk and Benzoin.",
@@ -806,7 +805,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10394914980150",
-    name: "Celestial Perfume My way",
+    name: "Inspired by Giorgio Armani My Way",
     category: "Luxury Perfumes",
     priceRange: "₹849 - ₹1,099",
     description: "My Way is a Floral fragrance for women. My Way was created by Carlos Benaïm and Bruno Jovanovic. Top notes are Orange Blossom and Bergamot; middle notes are Tuberose and Indian Jasmine; base notes are Madagascar Vanilla, White Musk and Virginian Cedar.",
@@ -820,7 +819,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10394914881846",
-    name: "Celestial Perfume Eden Apple",
+    name: "Inspired by Kayali Eden Juicy Apple",
     category: "Men's Collection",
     priceRange: "₹849 - ₹1,099",
     description: "Eden Juicy Apple Fragrances is a Floral Fruity Gourmand fragrance for women and men. Top notes are Red Apple, Litchi, Black Currant and Pink Grapefruit; middle notes are Wild Berries, Raspberry Bloom, Jasmine and May Rose; base notes are Sugar, Musk, Vanilla Flower, Amber and Moss.",
@@ -834,7 +833,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10394914095414",
-    name: "Celestial Perfume Coco M",
+    name: "Inspired by Chanel Coco Mademoiselle",
     category: "Luxury Perfumes",
     priceRange: "₹849 - ₹1,099",
     description: "Coco Mademoiselle is a Amber Floral fragrance for women. Top notes are Orange, Mandarin Orange, Bergamot and Orange Blossom; middle notes are Turkish Rose, Jasmine, Mimosa and Ylang-Ylang; base notes are Patchouli, White Musk, Vanilla, Vetiver, Tonka Bean and Opoponax.",
@@ -848,7 +847,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10394914029878",
-    name: "Celestial Perfume O'Blossom",
+    name: "Inspired by Jo Malone Orange Blossom",
     category: "Luxury Perfumes",
     priceRange: "₹849 - ₹1,099",
     description: "Blossom by Jo Malone London is a Floral fragrance for women and men. The nose behind this fragrance is Jean Claude Delville. Top note is Tangerine Blossom; middle notes are Orange Blossom, Lilac and Water Lily; base notes are Iris and Vetiver.",
@@ -862,7 +861,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10394913964342",
-    name: "Celestial Perfume K Vanilla",
+    name: "Inspired by Kayali Vanilla 28",
     category: "Men's Collection",
     priceRange: "₹849 - ₹1,099",
     description: "Vanilla 28 is a Oriental Vanilla fragrance for women and men. The nose behind this fragrance is Gabriela Chelariu. Top notes are Vanilla Orchid and Jasmine; middle notes are Brown sugar and Tonka Bean; base notes are Amber, Amberwood, Musk and Patchouli.",
@@ -876,7 +875,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10394913866038",
-    name: "Celestial Perfume Si",
+    name: "Inspired by Giorgio Armani Sì",
     category: "Luxury Perfumes",
     priceRange: "₹849 - ₹1,099",
     description: "Si by GA is a Chypre Fruity fragrance for women. The nose behind this fragrance is Christine Nagel. Top note is Cassis; middle notes are May Rose and Freesia; base notes are Vanilla, Patchouli, Woody Notes and Ambroxan.",
@@ -890,7 +889,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10394898465078",
-    name: "Celestial Perfume H-GG",
+    name: "Inspired by Carolina Herrera Good Girl",
     category: "Luxury Perfumes",
     priceRange: "₹849 - ₹1,099",
     description: "Good Girl is a Amber Floral fragrance for women. Top notes are Almond, Coffee, Bergamot and Lemon; middle notes are Tuberose, Jasmine Sambac, Orange Blossom, Orris and Bulgarian Rose; base notes are Tonka Bean, Cacao, Vanilla, Praline, Sandalwood, Musk, Amber, Cashmere Wood, Cinnamon, Patchouli and Cedar.",
@@ -904,7 +903,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10394898104630",
-    name: "Celestial Perfume Bloom",
+    name: "Inspired by Gucci Bloom",
     category: "Luxury Perfumes",
     priceRange: "₹849 - ₹1,099",
     description: "Gucci Bloom is a Floral fragrance for women. Top notes are Galbanum Leaf, Cassis, Bergamot and Lemon; middle notes are Honeysuckle, Tuberose, Jasmine, Lily-of-the-Valley and Freesia; base notes are Musk, Iso E Super and Sandalwood.",
@@ -918,7 +917,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10394897875254",
-    name: "Celestial Perfume N-5",
+    name: "Inspired by Chanel No. 5",
     category: "Luxury Perfumes",
     priceRange: "₹849 - ₹1,099",
     description: "N5 is a Floral Aldehyde fragrance for women. Top notes are Aldehydes, Ylang-Ylang, Neroli, Bergamot and Lemon; middle notes are Iris, Jasmine, Rose, Orris Root and Lily-of-the-Valley; base notes are Civet, Musk, Amber, Sandalwood, Moss, Vanilla, Vetiver and Patchouli.",
@@ -932,7 +931,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10394897613110",
-    name: "Celestial Perfume Bright Crystal",
+    name: "Inspired by Versace Bright Crystal",
     category: "Luxury Perfumes",
     priceRange: "₹849 - ₹1,099",
     description: "Bright Crystal is a Floral Fruity fragrance for women. Top notes are Yuzu, Pomegranate and Ice; middle notes are Peony, Lotus and Magnolia; base notes are Musk, Mahogany and Amber.",
@@ -946,7 +945,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10394897416502",
-    name: "Celestial Perfume Flora",
+    name: "Inspired by Gucci Flora",
     category: "Luxury Perfumes",
     priceRange: "₹799 - ₹999",
     description: "flora gorgeous for women is a joyful floral perfume . Top note is Mandarin and pepper ; middle note is Osmanthus, peony and rose ; base note is Patchouli, cedar and leather .",
@@ -960,7 +959,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10313264988470",
-    name: "Inspired By C@lvin Klein 0bsessi0n ( Worn By Salman Khan )",
+    name: "Inspired by Calvin Klein Obsession (Worn by Salman Khan)",
     category: "Men's Collection",
     priceRange: "₹849 - ₹1,099",
     description: "Obsession for Me n is a Oriental Woody fragrance for men. Obsession for Men was launched in 1986. The nose behind this fragrance is Robert Slattery. Top notes are Cinnamon, Lavender, Coriander, Mandarin Orange, Lime, Bergamot and Grapefruit; middle notes are Myrhh, Nutmeg, Carnation, Brazilian Rosewood, Pine Tree, Sage, Jasmine and Red Berries; base notes are Amber, Vanilla, Sandalwood, Musk, Patchouli and Vetiver.",
@@ -974,7 +973,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10314232267062",
-    name: "Inspired by Jo M@lone 0range Bl0ssom (Worn by Deepika P@duk0ne)",
+    name: "Inspired by Jo Malone Orange Blossom (Worn by Deepika Padukone)",
     category: "Luxury Perfumes",
     priceRange: "₹849 - ₹1,099",
     description: "Blossom by Jo Malone London is a Floral fragrance for women and men. The nose behind this fragrance is Jean Claude Delville. Top note is Tangerine Blossom; middle notes are Orange Blossom, Lilac and Water Lily; base notes are Iris and Vetiver.",
@@ -988,7 +987,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10313272820022",
-    name: "Inspired By Pr@da P@rad0xe",
+    name: "Inspired by Prada Paradoxe",
     category: "Luxury Perfumes",
     priceRange: "₹849 - ₹1,099",
     description: "Paradoxe is a Oriental Floral fragrance for women. Top notes are Pear, Tangerine and Bergamot; middle notes are Orange Blossom, Neroli Essence, Neroli and Jasmine Sambac; base notes are Bourbon Vanilla, Amber, White Musk and Benzoin.",
@@ -1002,7 +1001,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10303108153654",
-    name: "Inspired By My W@y Gi0rgi0 Arm@ni",
+    name: "Inspired by Giorgio Armani My Way",
     category: "Luxury Perfumes",
     priceRange: "₹849 - ₹1,099",
     description: "My Way is a Floral fragrance for women. My Way was created by Carlos Benaïm and Bruno Jovanovic. Top notes are Orange Blossom and Bergamot; middle notes are Tuberose and Indian Jasmine; base notes are Madagascar Vanilla, White Musk and Virginian Cedar.",
@@ -1016,7 +1015,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10303106679094",
-    name: "Inspired By LV Im@gin@tions",
+    name: "Inspired by Louis Vuitton Imagination",
     category: "Men's Collection",
     priceRange: "₹949 - ₹1,299",
     description: "Imagination by L V is a Citrus Aromatic fragrance for men. Imagination was launched in 2021. The nose behind this fragrance is Jacques Cavallier Belletrud. Top notes are Citron, Calabrian bergamot and Sicilian Orange; middle notes are Tunisian Neroli, Nigerian Ginger and Ceylon Cinnamon; base notes are Chinese Black Tea, Ambroxan, Guaiac Wood and Olibanum.",
@@ -1030,7 +1029,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10303109038390",
-    name: "Inspired By K@y@li Eden Juicy Apple",
+    name: "Inspired by Kayali Eden Juicy Apple",
     category: "Men's Collection",
     priceRange: "₹849 - ₹1,099",
     description: "Eden Juicy Apple Fragrances is a Floral Fruity Gourmand fragrance for women and men. Top notes are Red Apple, Litchi, Black Currant and Pink Grapefruit; middle notes are Wild Berries, Raspberry Bloom, Jasmine and May Rose; base notes are Sugar, Musk, Vanilla Flower, Amber and Moss.",
@@ -1044,7 +1043,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10305123811638",
-    name: "Inspired By K@yali V@nilla",
+    name: "Inspired by Kayali Vanilla 28",
     category: "Men's Collection",
     priceRange: "₹849 - ₹1,099",
     description: "Vanilla 28 is a Oriental Vanilla fragrance for women and men. The nose behind this fragrance is Gabriela Chelariu. Top notes are Vanilla Orchid and Jasmine; middle notes are Brown sugar and Tonka Bean; base notes are Amber, Amberwood, Musk and Patchouli.",
@@ -1058,7 +1057,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10305082720566",
-    name: "Inspired By Gi0rgi0 Arm@ni Si",
+    name: "Inspired by Giorgio Armani Sì",
     category: "Luxury Perfumes",
     priceRange: "₹849 - ₹1,099",
     description: "Si by GA is a Chypre Fruity fragrance for women. The nose behind this fragrance is Christine Nagel. Top note is Cassis; middle notes are May Rose and Freesia; base notes are Vanilla, Patchouli, Woody Notes and Ambroxan.",
@@ -1072,7 +1071,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10205971120438",
-    name: "Inspired By D J'@dore Perfume",
+    name: "Inspired by Dior J'adore",
     category: "Luxury Perfumes",
     priceRange: "₹849 - ₹1,099",
     description: "J'ad0re is a Floral Fruity fragrance for women. The nose behind this fragrance is Calice Becker. Top notes are Pear, Melon, Magnolia, Peach, Mandarin Orange and Bergamot; middle notes are Jasmine, Lily-of-the-Valley, Tuberose, Freesia, Rose, Orchid, Violet and Plum; base notes are Musk, Vanilla, Cedar and Blackberry.",
@@ -1086,7 +1085,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10205947232566",
-    name: "Inspired By Vers@ce Dyl@n Blue Perfume",
+    name: "Inspired by Versace Dylan Blue",
     category: "Men's Collection",
     priceRange: "₹849 - ₹1,099",
     description: "Dylan Blue is a Aromatic Fougere fragrance for men. The nose behind this fragrance is Alberto Morillas. Top notes are Calabrian bergamot, Water Notes, Grapefruit and Fig Leaf; middle notes are Ambroxan, Black Pepper, Patchouli, Violet Leaf and Papyrus; base notes are Incense, Musk, Tonka Bean and Saffron.",
@@ -1099,7 +1098,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10201062375734",
-    name: "Inspired By @jm@l Wis@l Dh@h@b Perfume",
+    name: "Inspired by Ajmal Wisal Dhahab",
     category: "Men's Collection",
     priceRange: "₹849 - ₹1,099",
     description: "Wis@l Dhahab is a Floral Woody Musk fragrance for women and men. Top notes are Pear, Apple, Peach, Grapefruit and Mandarin Orange; middle notes are Rose, Orchid, Jasmine and Geranium; base notes are Sandalwood, Musk, Patchouli and Cedar.",
@@ -1112,7 +1111,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10201058607414",
-    name: "Inspired By L@tt@fa Kh@mrah Perfume",
+    name: "Inspired by Lattafa Khamrah",
     category: "Men's Collection",
     priceRange: "₹849 - ₹1,099",
     description: "Khamrah is a Oriental Spicy fragrance for women and men. This is a new fragrance.Top notes are Cinnamon, Nutmeg and Bergamot; middle notes are Dates, Praline, Tuberose and Mahonial; base notes are Vanilla, Tonka Bean, Amberwood, Myrrh, Benzoin and Akigalawood",
@@ -1125,7 +1124,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-10104700076342",
-    name: "Inspired By R@s@si H@wµs P0µr H0mu Perfume",
+    name: "Inspired by Rasasi Hawas for Him",
     category: "Men's Collection",
     priceRange: "₹849 - ₹1,099",
     description: "is a Aromatic Aquatic fragrance for men. Top notes are Bergamot, Apple, Cinnamon and Lemon; middle notes are Watery Notes, Plum, Orange Blossom and Cardamon; base notes are Ambergris, Musk, Driftwood and Patchouli.",
@@ -1138,7 +1137,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-9993652994358",
-    name: "Inspired by Čh@nÈl N0.5 Perfume ( Worn by S@ra ali Kh@n )",
+    name: "Inspired by Chanel No. 5 (Worn by Sara Ali Khan)",
     category: "Luxury Perfumes",
     priceRange: "₹849 - ₹1,099",
     description: "N5 is a Floral Aldehyde fragrance for women. Top notes are Aldehydes, Ylang-Ylang, Neroli, Bergamot and Lemon; middle notes are Iris, Jasmine, Rose, Orris Root and Lily-of-the-Valley; base notes are Civet, Musk, Amber, Sandalwood, Moss, Vanilla, Vetiver and Patchouli.",
@@ -1151,7 +1150,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-9514240999734",
-    name: "Inspired By Roja Ely$ium Perfume (Worn By H@rdik P@ndya)",
+    name: "Inspired by Roja Elysium (Worn by Hardik Pandya)",
     category: "Men's Collection",
     priceRange: "₹949 - ₹1,299",
     description: "$lysium Pour Homme Parfum Cologne by R0ja Dove is a Aromatic Fougere fragrance for men. $ lysium Pour Homme Parfum Cologne was launched in 2017. The nose behind this fragrance is R0ja Dove. Top notes are Grapefruit, Lemon, Bergamot, Lime, Thyme, Artemisia and Galbanum; middle notes are Vetiver, Juniper Berries, Black Currant, Apple, Pink Pepper, Cedar, Cypriol Oil or Nagarmotha, Lily-of-the-Valley, Rose and Jasmine; base notes are Ambergris, Leather, Vanilla, Benzoin and Labdanum.",
@@ -1164,7 +1163,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-9558303605046",
-    name: "Inspired By JPG Ultra M@le Perfume",
+    name: "Inspired by Jean Paul Gaultier Ultra Male",
     category: "Men's Collection",
     priceRange: "₹849 - ₹1,099",
     description: "Ultra Male, the rogue sailor who will have you lost at sea! This Eau de Toilette Intense is a lavender cologne for men fighting in an arm wrestle between power and greed. A Jean Paul Gaultier fragrance featuring an irresistible combination of dark lavender, woody vanilla, pear juice and mint.",
@@ -1177,7 +1176,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-9514258923830",
-    name: "Inspired By Ombre Nom@de Perfume",
+    name: "Inspired by Louis Vuitton Ombre Nomade",
     category: "Men's Collection",
     priceRange: "₹849 - ₹1,099",
     description: "Ombre Nom@de by L0uis Vuitt0n is a Amber Woody fragrance for women and men. Ombre Nom@de was launched in 2018. The nose behind this fragrance is J@cques C@vallier.",
@@ -1190,7 +1189,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-9553320640822",
-    name: "Inspired by T0mford T@abacc0 V@nille Perfume",
+    name: "Inspired by Tom Ford Tobacco Vanille",
     category: "Men's Collection",
     priceRange: "₹949 - ₹1,299",
     description: "Tom Ford reinvents a classic fragrance genre by adding creamy tonka bean, vanilla, cocoa, dry fruit accords and sweet wood sap for a modern, opulent, and almost heady impression that's all man, unless worn by a woman.",
@@ -1203,7 +1202,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-9514272424246",
-    name: "Inspired by Ch@nel @llure H0mme Spt Perfume ( Worn by S@if Al! Kh@n  )",
+    name: "Inspired by Chanel Allure Homme Sport (Worn by Saif Ali Khan)",
     category: "Men's Collection",
     priceRange: "₹849 - ₹1,099",
     description: "@llure H0mme by Ch@nel is a Woody Spicy fragrance for men. @ llure H0mme Spt was launched in 2004. The nose behind this fragrance is J@cques Polge. Top notes are Orange, Sea Notes, Aldehydes and Blood Mandarin; middle notes are Pepper, Neroli and Cedar; base notes are Vanilla, Tonka Bean, White Musk, Amber, Vetiver and Elemi resin.",
@@ -1216,7 +1215,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-9398753427766",
-    name: "Inspired By B@ccarat R0uge 540 Perfume",
+    name: "Inspired by Baccarat Rouge 540",
     category: "Men's Collection",
     priceRange: "₹949 - ₹1,299",
     description: "BR 540 is a Amber Floral fragrance for women and men. The nose behind this fragrance is Francis Kurkdjian. Top notes are Saffron and Jasmine; middle notes are Amberwood and Ambergris; base notes are Fir Resin and Cedar.",
@@ -1229,7 +1228,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-9378246754614",
-    name: "Inspired By YSL Black 0pium Perfume",
+    name: "Inspired by YSL Black Opium",
     category: "Luxury Perfumes",
     priceRange: "₹849 - ₹1,099",
     description: "Black Opium is a Amber Vanilla fragrance for women. Top notes are Pear, Pink Pepper and Orange Blossom; middle notes are Coffee, Jasmine, Bitter Almond and Licorice; base notes are Vanilla, Patchouli, Cashmere Wood and Cedar.",
@@ -1242,7 +1241,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-9312888422710",
-    name: "Inspired Ch@nel Coco M@demoiselle Perfume ( Worn by Ileana D'Cruz )",
+    name: "Inspired by Chanel Coco Mademoiselle (Worn by Ileana D'Cruz)",
     category: "Luxury Perfumes",
     priceRange: "₹849 - ₹1,099",
     description: "Coco Mademoiselle is a Amber Floral fragrance for women. Top notes are Orange, Mandarin Orange, Bergamot and Orange Blossom; middle notes are Turkish Rose, Jasmine, Mimosa and Ylang-Ylang; base notes are Patchouli, White Musk, Vanilla, Vetiver, Tonka Bean and Opoponax.",
@@ -1255,7 +1254,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-9312887669046",
-    name: "Inspired By Gucci Blo0m Perfume ( Worn by Aditi Rao Hydari )",
+    name: "Inspired by Gucci Bloom (Worn by Aditi Rao Hydari)",
     category: "Luxury Perfumes",
     priceRange: "₹849 - ₹1,099",
     description: "Gucci Bloom is a Floral fragrance for women. Top notes are Galbanum Leaf, Cassis, Bergamot and Lemon; middle notes are Honeysuckle, Tuberose, Jasmine, Lily-of-the-Valley and Freesia; base notes are Musk, Iso E Super and Sandalwood.",
@@ -1268,7 +1267,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-9259155489078",
-    name: "King Of Bollywood Perfume ( Inspired By T@MD@0 & DUNHILL ICON) Pack Of Two Perfumes",
+    name: "King of Bollywood Duo (Inspired by Tam Dao & Dunhill Icon)",
     category: "Men's Collection",
     priceRange: "₹1,099",
     description: "You Get 60Ml +60Ml =120Ml T@m D@o is a Floral Woody Musk fragrance for women and men. Top notes are Italian Cypress, Myrtle and Rose; middle notes are Sandalwood and Cedar; base notes are Brazilian Rosewood, Spices, Amber and White Musk. ICON is a Woody Aromatic fragrance for men. Top notes are Neroli, Bergamot, Black Pepper and Petitgrain; middle notes are Black Pepper, Lavender, Cardamom, Juniper Berries and Sage; base notes are Vetiver, Oakmoss, iris, Leather and Agarwood (Oud).",
@@ -1281,7 +1280,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-9237335146806",
-    name: "Inspired By Carolina Herrera Go0d Girl Perfume",
+    name: "Inspired by Carolina Herrera Good Girl",
     category: "Luxury Perfumes",
     priceRange: "₹849 - ₹1,099",
     description: "Good Girl is a Amber Floral fragrance for women. Top notes are Almond, Coffee, Bergamot and Lemon; middle notes are Tuberose, Jasmine Sambac, Orange Blossom, Orris and Bulgarian Rose; base notes are Tonka Bean, Cacao, Vanilla, Praline, Sandalwood, Musk, Amber, Cashmere Wood, Cinnamon, Patchouli and Cedar.",
@@ -1294,7 +1293,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-9237327020342",
-    name: "Inspired by Tomford ombre Le@ther Perfume ( Worn by Arjun Kap0or ) Unisex",
+    name: "Inspired by Tom Ford Ombré Leather (Worn by Arjun Kapoor)",
     category: "Men's Collection",
     priceRange: "₹849 - ₹1,099",
     description: "Ombré Leather is a Leather fragrance for women and men. Top note is Cardamom; middle notes are Leather and Jasmine Sambac; base notes are Amber, Moss and Patchouli.",
@@ -1307,7 +1306,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-9237322400054",
-    name: "Inspired by Paco Rabbane one Milli0n Perfume ( Worn by Ed Sheer@n )",
+    name: "Inspired by Paco Rabanne 1 Million (Worn by Ed Sheeran)",
     category: "Men's Collection",
     priceRange: "₹849 - ₹1,099",
     description: "1 Million is a Woody Spicy fragrance for men. Top notes are Blood Mandarin, Grapefruit and Mint; middle notes are Cinnamon, Spicy Notes and Rose; base notes are Amber, Leather, Woody Notes and Indian Patchouli.",
@@ -1320,7 +1319,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-9237314830646",
-    name: "Inspired by DUNHILL IC0N Perfume",
+    name: "Inspired by Dunhill Icon",
     category: "Men's Collection",
     priceRange: "₹849 - ₹1,099",
     description: "ICON is a Woody Aromatic fragrance for men. Top notes are Neroli, Bergamot, Black Pepper and Petitgrain; middle notes are Black Pepper, Lavender, Cardamom, Juniper Berries and Sage; base notes are Vetiver, Oakmoss, iris, Leather and Agarwood (Oud).",
@@ -1333,7 +1332,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-9237299265846",
-    name: "Inspired by Creed Av3ntus Perfume ( Worn By D@vid Beckh@m ) Unisex",
+    name: "Inspired by Creed Aventus (Worn by David Beckham)",
     category: "Men's Collection",
     priceRange: "₹849 - ₹1,099",
     description: "Aventus is a Chypre Fruity fragrance for men and women. Top notes are Pineapple, Bergamot, Black Currant and Apple; middle notes are Birch, Patchouli, Moroccan Jasmine and Rose; base notes are Musk, oak moss, Ambergris and Vanilla.",
@@ -1346,7 +1345,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-9237308342582",
-    name: "Inspired by Victoria Secret B0mbshell Perfume",
+    name: "Inspired by Victoria's Secret Bombshell",
     category: "Luxury Perfumes",
     priceRange: "₹849 - ₹1,099",
     description: "Bombshell is a Floral Fruity fragrance for women. Top notes are Passionfruit, Grapefruit, Pineapple, Tangerine and Big Strawberry; middle notes are Peony, Vanilla orchid, Red Berries, Jasmine and Lily-of-the-Valley; base notes are Musk, Woody Notes and Oakmoss.",
@@ -1359,7 +1358,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-9237308211510",
-    name: "Inspired by Tam Da0 Perfume",
+    name: "Inspired by Diptyque Tam Dao",
     category: "Men's Collection",
     priceRange: "₹849 - ₹1,099",
     description: "T@m D@o Eau de Toilette is a Floral Woody Musk fragrance for women and men. Top notes are Italian Cypress, Myrtle and Rose; middle notes are Sandalwood and Cedar; base notes are Brazilian Rosewood, Spices, Amber and White Musk.",
@@ -1372,7 +1371,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-9237308277046",
-    name: "Inspired by Versace Er0s Perfume",
+    name: "Inspired by Versace Eros",
     category: "Men's Collection",
     priceRange: "₹849 - ₹1,099",
     description: "Eros is a Aromatic Fougere fragrance for men. Top notes are Mint, Green Apple and Lemon; middle notes are Tonka Bean, Ambroxan and Geranium; base notes are Madagascar Vanilla, Virginian Cedar, Atlas Cedar, Vetiver and Oakmoss.",
@@ -1385,7 +1384,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-9237308113206",
-    name: "Inspired by D 0ff Cool W@ter Perfume ( Worn by Aksh@y Kum@r ) Unisex",
+    name: "Inspired by Davidoff Cool Water (Worn by Akshay Kumar)",
     category: "Men's Collection",
     priceRange: "₹849 - ₹1,099",
     description: "Cool Water is a Aromatic Aquatic fragrance for men and women. Top notes are Sea water, Lavender, Mint, Green Notes, Rosemary, Calone and Coriander; middle notes are Sandalwood, Geranium, Neroli and Jasmine; base notes are Musk, Tobacco, Oakmoss, Cedar and Amber.",
@@ -1398,7 +1397,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-9237299724598",
-    name: "Inspired By Viking Perfume ( Worn by Vir@t K0hli )",
+    name: "Inspired by Creed Viking (Worn by Virat Kohli)",
     category: "Men's Collection",
     priceRange: "₹849 - ₹1,099",
     description: "Viking by is a Woody Aromatic fragrance for men. Top notes are Pink Pepper, Spicy Mint, Bergamot, Lemon, Absinthe and Orange; middle notes are Lavender, Bulgarian Rose, Clove, Allspice, Orris Root and Jasmine; base notes are Vetiver, Cedar, White Musk and Tonka Bean.",
@@ -1411,7 +1410,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-9237299659062",
-    name: "Inspired By Azzaro The Most W@nted Perfume",
+    name: "Inspired by Azzaro The Most Wanted",
     category: "Men's Collection",
     priceRange: "₹849 - ₹1,099",
     description: "The Most Wanted is a Amber Spicy fragrance for men. Top note is Cardamom; middle note is Toffee; base note is Amberwood. T he Most Wanted, an unpredictable masculine fragrance with an intense kick.",
@@ -1424,7 +1423,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-9237299560758",
-    name: "Inspired By Ck 0ne Perfume",
+    name: "Inspired by Calvin Klein CK One",
     category: "Men's Collection",
     priceRange: "₹849 - ₹1,099",
     description: "One is a Citrus Aromatic fragrance for women and men. Top notes are Lemon, Green Notes, Bergamot, Pineapple, Mandarin Orange, Cardamom and Papaya; middle notes are Lily-of-the-Valley, Jasmine, Violet, Nutmeg, Rose, Orris Root and Freesia; base notes are Green Accord, Musk, Cedar, Sandalwood, Oakmoss, Green Tea and Amber.",
@@ -1437,7 +1436,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-9237299462454",
-    name: "Inspired By D Homme P@rfum Perfume",
+    name: "Inspired by Dior Homme Parfum",
     category: "Men's Collection",
     priceRange: "₹849 - ₹1,099",
     description: "Homme Parfum is a Leather fragrance for men. T op notes are Tuscan Iris and Italian Orange; middle notes are Leather and Rose; base notes are Sandalwood, Ambrette (Musk Mallow), Agarwood (Oud) and Cedar.",
@@ -1450,7 +1449,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-9237299429686",
-    name: "Inspired By Gucci Gµilty Perfume ( Worn by R@nveer Singh ) Unisex",
+    name: "Inspired by Gucci Guilty (Worn by Ranveer Singh)",
     category: "Men's Collection",
     priceRange: "₹849 - ₹1,099",
     description: "Guilty Pour Homme is a Woody Aromatic fragrance for men & Women. Top notes are Lavender and Amalfi Lemon; middle note is African Orange flower; base notes are Virginia Cedar, Patchouli and Vanilla.",
@@ -1463,7 +1462,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-9237293891894",
-    name: "Inspired by Terre De Herme$ Perfume ( Worn by Sanj@y Dutt )",
+    name: "Inspired by Terre d'Hermès (Worn by Sanjay Dutt)",
     category: "Men's Collection",
     priceRange: "₹849 - ₹1,099",
     description: "Terre d is a Woody Spicy fragrance for men.Top notes are Orange and Grapefruit; middle notes are Pepper, Pelargonium and Flint; base notes are Vetiver, Cedar, Patchouli and Benzoin.",
@@ -1476,7 +1475,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-9237293826358",
-    name: "Inspired by Tomford oud W00d Perfume ( Worn by Moni R0y & Am@n Gupta Bo@t ) Unisex",
+    name: "Inspired by Tom Ford Oud Wood (Worn by Mouni Roy & Aman Gupta)",
     category: "Men's Collection",
     priceRange: "₹849 - ₹1,099",
     description: "Oud Wood is a Amber Woody fragrance for women and men.",
@@ -1489,7 +1488,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-9237293760822",
-    name: "Inspired By Bvlgari Men In Bl@ck Perfume",
+    name: "Inspired by Bvlgari Man In Black",
     category: "Men's Collection",
     priceRange: "₹849 - ₹1,099",
     description: "Men In Black is a Amber Floral fragrance for men. Top notes are Spices, Rum and Tobacco; middle notes are Leather, iris and Tuberose; base notes are Tonka Bean, Guaiac Wood and Benzoin. With Men in Black expresses the impetuous and mysterious character of fire, a transformative element symbolizing strength and energy.",
@@ -1502,7 +1501,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-9237293662518",
-    name: "Inspired by Creed Green Irish Twe3d Perfume ( Worn by S@hid Kapoor )",
+    name: "Inspired by Creed Green Irish Tweed (Worn by Shahid Kapoor)",
     category: "Men's Collection",
     priceRange: "₹849 - ₹1,099",
     description: "Green Irish Tweed is a Woody Floral Musk fragrance for men. Top notes are Lemon Verbena and iris; middle note is Violet Leaf; base notes are Ambergris and Sandalwood.",
@@ -1515,7 +1514,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-9237292581174",
-    name: "Inspired By Ġůccï FL0r@ Perfume ( Worn by Alia Bh@tt )",
+    name: "Inspired by Gucci Flora (Worn by Alia Bhatt)",
     category: "Luxury Perfumes",
     priceRange: "₹799 - ₹999",
     description: "flora gorgeous for women is a joyful floral perfume . Top note is Mandarin and pepper ; middle note is Osmanthus, peony and rose ; base note is Patchouli, cedar and leather .",
@@ -1528,7 +1527,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-9237291467062",
-    name: "Inspired By Bleu De Ch@nel Perfume ( Worn by Adity@ Roy K@p00r )",
+    name: "Inspired by Bleu de Chanel (Worn by Aditya Roy Kapur)",
     category: "Men's Collection",
     priceRange: "₹849 - ₹1,099",
     description: "Bleu de is a Woody Aromatic fragrance for men. Top notes are Grapefruit, Lemon, Mint and Pink Pepper; middle notes are Ginger, Nutmeg, Jasmine and Iso E Super; base notes are Incense, Vetiver, Cedar, Sandalwood, Patchouli, Labdanum and White Musk.",
@@ -1541,7 +1540,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-9179590066486",
-    name: "Inspired By Armani C0de Perfume",
+    name: "Inspired by Giorgio Armani Armani Code",
     category: "Men's Collection",
     priceRange: "₹849 - ₹1,099",
     description: "Code is a Amber Spicy fragrance for men. Top notes are Lemon and Bergamot; middle notes are Star Anise, Olive Blossom and Guaiac Wood; base notes are Leather, Tonka Bean and Tobacco.",
@@ -1554,7 +1553,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-9179590000950",
-    name: "Inspired by Versace Bright Cryst@l Perfume ( Worn by Kiara Advani & Manushi Chhillar )",
+    name: "Inspired by Versace Bright Crystal (Worn by Kiara Advani)",
     category: "Luxury Perfumes",
     priceRange: "₹849 - ₹1,099",
     description: "Bright Crystal is a Floral Fruity fragrance for women. Top notes are Yuzu, Pomegranate and Ice; middle notes are Peony, Lotus and Magnolia; base notes are Musk, Mahogany and Amber.",
@@ -1567,7 +1566,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-9179589607734",
-    name: "Inspired By Acqua Di Gio Pr0fumo Perfume",
+    name: "Inspired by Giorgio Armani Acqua Di Giò Profumo",
     category: "Men's Collection",
     priceRange: "₹849 - ₹1,099",
     description: "Acqua di Gio Profumo is a Aromatic Aquatic fragrance for men. Top notes are Lime and Bergamot; middle notes are Sea Notes, Jasmine and Peace; base notes are Cedar, Patchouli and Amber. Profumo is an aquatic, aromatic, woody and spicy composition.",
@@ -1580,7 +1579,7 @@ export const COLLECTION_PRODUCTS = [
   },
   {
     id: "celestial-9179589509430",
-    name: "Inspired by D S@uv@ge Perfume ( Worn by J0hnny depp )",
+    name: "Inspired by Dior Sauvage (Worn by Johnny Depp)",
     category: "Men's Collection",
     priceRange: "₹849 - ₹1,099",
     description: "Sauvage is a Aromatic Fougere fragrance for men. Top notes are Calabrian bergamot and Pepper; middle notes are Sichuan Pepper, Lavender, Pink Pepper, Vetiver, Patchouli, Geranium and elemi; base notes are Ambroxan, Cedar and Labdanum.",

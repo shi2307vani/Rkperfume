@@ -8,34 +8,37 @@ import Link from "next/link";
 
 const CUSTOMER_FAVORITES = [
   {
-    id: "azure-bloom",
-    title: "AZURE BLOOM",
-    type: "Eau de parfum",
+    id: "lattafa-khamrah-inspired",
+    title: "KHAMRAH QAHWA (RK INSPIRED)",
+    type: "Eau de Parfum",
     size: "50 ml",
-    price: "₹2,499",
-    priceUsd: "$210.00",
-    image: "/images/fleur_product_azure_bloom.jpg",
-    description: "Luminous fresh fig, white magnolia petals, and sun-warmed river stone.",
+    price: "₹949",
+    originalPrice: "₹1,299",
+    badge: "Bestseller",
+    image: "/images/luxury_gold.png",
+    description: "Warm roasted coffee, rich dates, praline and golden amber vanilla.",
   },
   {
-    id: "whispering-spring",
-    title: "WHISPERING SPRING",
-    type: "Scented candle",
-    size: "200 ml",
-    price: "₹1,899",
-    priceUsd: "$60.00",
-    image: "/images/fleur_product_candle.jpg",
-    description: "Pure botanical wax infused with early morning dew, green tea, and cherry blossom.",
+    id: "royal-arabian-oud",
+    title: "ROYAL OUD ATTAR",
+    type: "Pure Concentrated Oil",
+    size: "12 ml",
+    price: "₹899",
+    originalPrice: "₹1,199",
+    badge: "100% Alcohol-Free",
+    image: "/images/arabian_attar.png",
+    description: "Authentic Cambodian agarwood infused with Kashmiri saffron and dark rose.",
   },
   {
-    id: "azure-bloom-for-him",
-    title: "AZURE BLOOM FOR HIM",
-    type: "Eau de parfum",
+    id: "creed-aventus-inspired",
+    title: "AVENTUS NOBLE (RK INSPIRED)",
+    type: "Eau de Parfum",
     size: "50 ml",
-    price: "₹2,699",
-    priceUsd: "$220.00",
-    image: "/images/fleur_product_azure_him.jpg",
-    description: "Smoky purple fig, velvet dark cedar, and damask rose on mineral flint.",
+    price: "₹949",
+    originalPrice: "₹1,299",
+    badge: "Trending",
+    image: "/images/blue_ocean.png",
+    description: "Smoky pineapple, blackcurrant, silver birch and velvet ambergris.",
   },
 ];
 
@@ -119,13 +122,20 @@ export default function FeaturedProducts() {
               </p>
 
               {/* Price */}
-              <div className="flex items-center gap-2 mb-4">
-                <span className="font-heading text-sm sm:text-base text-[#1A2024] font-medium tracking-wide">
+              <div className="flex items-center justify-center gap-2.5 mb-4">
+                <span className="font-heading text-base sm:text-lg text-[#1A2024] font-semibold tracking-wide">
                   {product.price}
                 </span>
-                <span className="text-xs text-[#8E98A0]">
-                  ({product.priceUsd})
-                </span>
+                {product.originalPrice && (
+                  <span className="text-xs text-[#8E98A0] line-through">
+                    {product.originalPrice}
+                  </span>
+                )}
+                {product.badge && (
+                  <span className="text-[10px] uppercase tracking-wider px-2 py-0.5 bg-amber-100/80 text-amber-900 rounded font-medium">
+                    {product.badge}
+                  </span>
+                )}
               </div>
 
               {/* ADD TO CART Link matching reference */}
