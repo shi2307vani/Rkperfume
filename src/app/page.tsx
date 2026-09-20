@@ -3,7 +3,6 @@
 import Hero from "@/components/Hero";
 import FeaturedProducts from "@/components/FeaturedProducts";
 import PerfumeFinder from "@/components/PerfumeFinder";
-import VideoShowcase from "@/components/VideoShowcase";
 import Link from "next/link";
 import { ArrowRight, Star, Sparkles, MapPin, Clock, ShieldCheck, HeartHandshake, Award, Gift, Truck, CheckCircle } from "lucide-react";
 import { BUSINESS_INFO, TESTIMONIALS } from "@/lib/constants";
@@ -13,13 +12,10 @@ export default function Home() {
 
   return (
     <>
-      {/* 1. Hero Showcase */}
+      {/* 1. Hero Showcase with Video Background */}
       <Hero />
 
-      {/* 2. Cinematic Video Experience */}
-      <VideoShowcase />
-
-      {/* 3. Interactive Scent Finder Tool (ORANGE Priority) */}
+      {/* 2. Interactive Scent Finder Tool */}
       <PerfumeFinder />
 
       {/* 3. Customer Favorites (Curated Signature Selection) with link to /collections */}

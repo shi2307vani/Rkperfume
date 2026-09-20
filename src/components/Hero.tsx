@@ -1,180 +1,245 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
-import { ArrowRight, Sparkles, MapPin, ShieldCheck, Truck } from "lucide-react";
+import { useRef, useEffect, useState } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ArrowRight, Play, Pause, Volume2, VolumeX } from "lucide-react";
 import Link from "next/link";
-import { BUSINESS_INFO } from "@/lib/constants";
 
 export default function Hero() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [isMuted, setIsMuted] = useState(true);
+  const [isLoaded, setIsLoaded] = useState(false);
 
-  const scrollToPerfumeFinder = (e: React.MouseEvent) => {
-    e.preventDefault();
-    const element = document.getElementById("perfume-finder");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+
+  // Parallax: video scales up slightly as you scroll, content fades
+  const videoScale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
+  const contentY = useTransform(scrollYProgress, [0, 0.4], [0, -60]);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const handleLoaded = () => setIsLoaded(true);
+    video.addEventListener("loadeddata", handleLoaded);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            video.play().catch(() => {});
+            setIsPlaying(true);
+          } else {
+            video.pause();
+            setIsPlaying(false);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+    observer.observe(video);
+
+    return () => {
+      video.removeEventListener("loadeddata", handleLoaded);
+      observer.disconnect();
+    };
+  }, []);
+
+  const togglePlay = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (video.paused) {
+      video.play();
+      setIsPlaying(true);
     } else {
-      window.location.href = "/#perfume-finder";
+      video.pause();
+      setIsPlaying(false);
     }
+  };
+
+  const toggleMute = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = !video.muted;
+    setIsMuted(video.muted);
   };
 
   return (
     <section
       id="home"
-      ref={ref}
-      className="relative w-full min-h-[92vh] lg:min-h-screen bg-[#F7F6F3] overflow-hidden pt-28 pb-16 lg:py-0 flex items-center"
+      ref={sectionRef}
+      className="relative w-full h-screen overflow-hidden bg-[#0A0A0A]"
     >
-      {/* Subtle Botanical Sketch Line Art Background — Top Left */}
-      <div className="absolute -top-10 -left-10 w-96 h-96 pointer-events-none opacity-30 z-0">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/images/fleur_botanical_sketch.svg"
-          alt=""
-          className="w-full h-full object-contain"
-        />
-      </div>
-
-      {/* Subtle Botanical Sketch Line Art Background — Center Right */}
-      <div className="absolute top-1/4 right-10 w-[500px] h-[500px] pointer-events-none opacity-25 z-0 rotate-45">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/images/fleur_botanical_sketch.svg"
-          alt=""
-          className="w-full h-full object-contain"
-        />
-      </div>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center min-h-[78vh]">
-          {/* Left Column: Editorial Headline, Starting Price & CTAs */}
-          <div className="lg:col-span-7 flex flex-col justify-center pt-4 lg:pt-0 z-20">
-            {/* Heritage Location Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.7 }}
-              className="inline-flex items-center gap-2 mb-4 text-[#C5A059]"
-            >
-              <MapPin size={14} />
-              <span className="text-[11px] sm:text-xs uppercase tracking-[0.25em] font-medium">
-                Tulshibaug, Pune &middot; Flagship Boutique
-              </span>
-            </motion.div>
-
-            {/* Main Headline */}
-            <motion.h1
-              initial={{ opacity: 0, y: 25 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-              className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] xl:text-[4.2rem] text-[#1A2024] font-normal leading-[1.08] tracking-tight uppercase mb-6"
-            >
-              The Art of Scent,
-              <br />
-              Crafted in Pune
-            </motion.h1>
-
-            {/* Value Proposition & Pricing */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
-              className="text-sm sm:text-base text-[#5A646B] max-w-xl font-light leading-relaxed mb-8"
-            >
-              Pune&apos;s premier destination for pure Arabian attars, luxury Eau de Parfums, and artisanal inspired fragrances. Handcrafted compositions starting from{" "}
-              <strong className="text-[#1A2024] font-semibold">₹299</strong> with complimentary delivery on orders above ₹999.
-            </motion.p>
-
-            {/* 3 Direct CTAs */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.25, ease: "easeOut" }}
-              className="flex flex-wrap items-center gap-4 sm:gap-6 mb-10"
-            >
-              <Link
-                href="/collections"
-                className="px-7 py-3.5 bg-[#1A2024] text-[#F7F6F3] text-xs tracking-[0.2em] font-medium uppercase hover:bg-black transition-all shadow-sm inline-flex items-center gap-2 group"
-              >
-                <span>EXPLORE COLLECTIONS</span>
-                <ArrowRight
-                  size={14}
-                  className="transition-transform duration-300 group-hover:translate-x-1"
-                />
-              </Link>
-
-              <button
-                onClick={scrollToPerfumeFinder}
-                className="px-6 py-3.5 bg-white border border-black/15 text-[#1A2024] text-xs tracking-[0.18em] font-medium uppercase hover:border-black transition-all inline-flex items-center gap-2 cursor-pointer shadow-2xs"
-              >
-                <Sparkles size={13} className="text-[#C5A059]" />
-                <span>FIND YOUR SCENT</span>
-              </button>
-
-              <Link
-                href="/contact"
-                className="text-xs tracking-[0.2em] font-medium text-[#7A848D] hover:text-[#1A2024] transition-colors uppercase py-2"
-              >
-                VISIT BOUTIQUE
-              </Link>
-            </motion.div>
-
-            {/* Trust Strip */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : {}}
-              transition={{ duration: 0.8, delay: 0.35 }}
-              className="pt-6 border-t border-black/[0.08] flex flex-wrap items-center gap-6 sm:gap-8 text-xs text-[#5A646B]"
-            >
-              <div className="flex items-center gap-2">
-                <ShieldCheck size={16} className="text-emerald-700" />
-                <span>100% Genuine Fragrances</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Truck size={16} className="text-[#C5A059]" />
-                <span>Pan-India 3–5 Days</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-[#C5A059]" />
-                <span>In-Store Testing at Tulshibaug</span>
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Right Column: Hero Flacon Presentation */}
-          <div className="lg:col-span-5 relative flex items-center justify-center lg:justify-end">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-              className="relative w-full max-w-[440px] sm:max-w-[480px] lg:max-w-[500px] aspect-[3/4]"
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/fleur_hero_bottle_branded.png"
-                alt="RK Perfume Luxury Flacon"
-                className="w-full h-full object-contain drop-shadow-[0_15px_35px_rgba(0,0,0,0.06)]"
-              />
-            </motion.div>
-          </div>
-        </div>
-      </div>
-
-      {/* Magnolia Branch — Emerging organically from Bottom Left corner */}
+      {/* ══════════ VIDEO BACKGROUND LAYER ══════════ */}
       <motion.div
-        initial={{ opacity: 0, x: -50, y: 50 }}
-        animate={isInView ? { opacity: 1, x: 0, y: 0 } : {}}
-        transition={{ duration: 1.2, delay: 0.4, ease: "easeOut" }}
-        className="absolute -bottom-8 -left-8 sm:-bottom-12 sm:-left-12 w-64 sm:w-80 md:w-96 lg:w-[400px] pointer-events-none z-10"
+        className="absolute inset-0 w-full h-full"
+        style={{ scale: videoScale }}
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/images/fleur_magnolia_branch_transparent.png"
-          alt="Artisanal Blossom"
-          className="w-full h-auto object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.04)]"
+        <video
+          ref={videoRef}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ filter: "brightness(0.55) saturate(0.9) contrast(1.05)" }}
+        >
+          <source src="/videos/bg1.mp4" type="video/mp4" />
+        </video>
+      </motion.div>
+
+      {/* ══════════ GRADIENT OVERLAYS ══════════ */}
+      {/* Cinematic vignette — dark edges for depth */}
+      <div
+        className="absolute inset-0 pointer-events-none z-[2]"
+        style={{
+          background:
+            "radial-gradient(ellipse 70% 60% at 50% 45%, transparent 0%, rgba(10,10,10,0.5) 100%)",
+        }}
+      />
+      {/* Bottom gradient — blends hero into next section */}
+      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-white via-white/50 to-transparent pointer-events-none z-[2]" />
+      {/* Top subtle darkening for navbar readability */}
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black/30 to-transparent pointer-events-none z-[2]" />
+
+      {/* ══════════ DECORATIVE FRAME ══════════ */}
+      <div className="absolute inset-6 sm:inset-8 lg:inset-12 border border-white/[0.08] pointer-events-none z-[3]" />
+
+      {/* ══════════ LOADING STATE ══════════ */}
+      <motion.div
+        initial={{ opacity: 1 }}
+        animate={{ opacity: isLoaded ? 0 : 1 }}
+        transition={{ duration: 1.2, ease: "easeOut" }}
+        className="absolute inset-0 bg-[#0A0A0A] z-[5] pointer-events-none"
+      />
+
+      {/* ══════════ MAIN CONTENT ══════════ */}
+      <motion.div
+        className="relative z-[4] h-full flex flex-col items-center justify-center text-center px-6"
+        style={{ opacity: contentOpacity, y: contentY }}
+      >
+        {/* Tagline */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.4 }}
+          className="flex items-center gap-3 mb-6"
+        >
+          <span className="w-8 h-px bg-[#C8A97E]" />
+          <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.35em] text-[#C8A97E] font-medium">
+            Pune&apos;s Finest Perfumery
+          </span>
+          <span className="w-8 h-px bg-[#C8A97E]" />
+        </motion.div>
+
+        {/* Main Headline */}
+        <motion.h1
+          initial={{ opacity: 0, y: 35 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="font-heading text-[2.6rem] sm:text-6xl md:text-7xl lg:text-[5.5rem] xl:text-[6rem] text-white font-normal leading-[1.05] tracking-tight uppercase max-w-5xl"
+        >
+          The Art of Scent,
+          <br />
+          <span className="italic font-light text-[#C8A97E]">
+            Crafted in Pune
+          </span>
+        </motion.h1>
+
+        {/* Subtext */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.9 }}
+          className="text-[13px] sm:text-sm md:text-base text-white/55 font-light mt-6 max-w-xl leading-relaxed tracking-wide"
+        >
+          Pure Arabian attars, luxury Eau de Parfums & artisanal inspired
+          fragrances — handcrafted compositions starting from{" "}
+          <strong className="text-white font-medium">₹299</strong>
+        </motion.p>
+
+        {/* CTA Buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.2 }}
+          className="flex flex-wrap items-center justify-center gap-4 mt-10"
+        >
+          <Link
+            href="/collections"
+            className="group px-8 py-4 bg-white text-[#1A2024] text-[11px] sm:text-xs tracking-[0.2em] font-semibold uppercase hover:bg-[#C8A97E] hover:text-white transition-all duration-500 inline-flex items-center gap-2.5"
+          >
+            <span>Explore Collections</span>
+            <ArrowRight
+              size={14}
+              className="transition-transform duration-300 group-hover:translate-x-1"
+            />
+          </Link>
+
+          <Link
+            href="/contact"
+            className="px-8 py-4 border border-white/25 text-white text-[11px] sm:text-xs tracking-[0.2em] font-medium uppercase hover:bg-white/10 hover:border-white/50 transition-all duration-500 backdrop-blur-sm"
+          >
+            Visit Boutique
+          </Link>
+        </motion.div>
+
+        {/* Trust Badges */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 1.6 }}
+          className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 mt-12 text-[10px] sm:text-[11px] tracking-[0.15em] uppercase text-white/35 font-medium"
+        >
+          <span>100% Authentic</span>
+          <span className="w-1 h-1 rounded-full bg-[#C8A97E]/60" />
+          <span>Pan-India Delivery</span>
+          <span className="w-1 h-1 rounded-full bg-[#C8A97E]/60" />
+          <span>In-Store Testing</span>
+        </motion.div>
+      </motion.div>
+
+      {/* ══════════ SCROLL INDICATOR ══════════ */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 2 }}
+        className="absolute bottom-20 sm:bottom-16 left-1/2 -translate-x-1/2 z-[4] flex flex-col items-center gap-2"
+      >
+        <span className="text-[9px] tracking-[0.3em] uppercase text-white/25 font-medium">
+          Scroll
+        </span>
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          className="w-px h-10 bg-gradient-to-b from-[#C8A97E]/60 to-transparent"
         />
       </motion.div>
+
+      {/* ══════════ VIDEO CONTROLS ══════════ */}
+      <div className="absolute bottom-20 sm:bottom-10 right-6 sm:right-10 z-[5] flex items-center gap-2.5">
+        <button
+          onClick={togglePlay}
+          className="w-9 h-9 rounded-full bg-white/[0.07] backdrop-blur-md border border-white/[0.1] flex items-center justify-center text-white/50 hover:text-white hover:bg-white/15 transition-all duration-300 cursor-pointer"
+          aria-label={isPlaying ? "Pause video" : "Play video"}
+        >
+          {isPlaying ? <Pause size={14} /> : <Play size={14} />}
+        </button>
+        <button
+          onClick={toggleMute}
+          className="w-9 h-9 rounded-full bg-white/[0.07] backdrop-blur-md border border-white/[0.1] flex items-center justify-center text-white/50 hover:text-white hover:bg-white/15 transition-all duration-300 cursor-pointer"
+          aria-label={isMuted ? "Unmute video" : "Mute video"}
+        >
+          {isMuted ? <VolumeX size={14} /> : <Volume2 size={14} />}
+        </button>
+      </div>
     </section>
   );
 }
