@@ -56,15 +56,15 @@ export default function About() {
             <div className="relative w-full max-w-[400px] aspect-[4/5] rounded-2xl overflow-hidden border border-border-light bg-cream-dark group">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/images/arabian_attar.png"
-                alt="Premium Royal Oud Arabian Attar Showcase"
+                src="/images/products/essprive_oud_wood.jpg"
+                alt="ESSPRIVE Oud Wood Extrait De Parfum Showcase"
                 className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
               />
 
               <div className="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-sm p-4 rounded-xl flex items-center justify-between">
                 <div>
-                  <h4 className="text-text-primary text-sm font-heading font-semibold">Royal Oud</h4>
-                  <p className="text-warm-gold text-xs">Exotic Attar</p>
+                  <h4 className="text-text-primary text-sm font-heading font-semibold">ESSPRIVE Oud Wood</h4>
+                  <p className="text-warm-gold text-xs">Extrait De Parfum &middot; ₹599 - ₹649</p>
                 </div>
                 <span className="text-charcoal text-xs font-semibold px-3 py-1 rounded-full bg-warm-gold/15 border border-warm-gold/20">
                   Best Seller

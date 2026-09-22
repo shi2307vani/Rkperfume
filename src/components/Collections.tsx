@@ -26,8 +26,8 @@ export default function Collections() {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedType, setSelectedType] = useState<"all" | "inspired" | "original" | "attar" | "gift">("all");
-  const [selectedPrice, setSelectedPrice] = useState<"all" | "under999" | "999to1499" | "1500plus">("all");
+  const [selectedType, setSelectedType] = useState<"all" | "women" | "men" | "unisex" | "bestsellers">("all");
+  const [selectedPrice, setSelectedPrice] = useState<"all" | "price599" | "price649">("all");
   const [expandedProducts, setExpandedProducts] = useState<Record<string, boolean>>({});
 
   const toggleExpand = (productId: string) => {
@@ -39,10 +39,10 @@ export default function Collections() {
 
   const allProducts = COLLECTION_PRODUCTS as unknown as readonly Product[];
 
-  // Helper to extract lowest numeric price from priceRange e.g. "₹849 - ₹1,099" -> 849
+  // Helper to extract lowest numeric price from priceRange e.g. "₹599" -> 599
   const getMinPrice = (range: string): number => {
     const numbers = range.replace(/[^0-9]/g, " ").trim().split(/\s+/).map(Number).filter(n => n > 0);
-    return numbers.length > 0 ? Math.min(...numbers) : 999;
+    return numbers.length > 0 ? Math.min(...numbers) : 599;
   };
 
   // Filter products based on search, type, and price
@@ -61,32 +61,25 @@ export default function Collections() {
       }
 
       // Type filter
-      if (selectedType === "inspired") {
-        if (!product.name.toLowerCase().includes("inspired") && !product.category.toLowerCase().includes("inspired")) {
-          return false;
-        }
-      } else if (selectedType === "original") {
-        if (product.name.toLowerCase().includes("inspired") || product.category === "Arabian Attars" || product.category === "Gift Sets") {
-          return false;
-        }
-      } else if (selectedType === "attar") {
-        if (product.category !== "Arabian Attars" && !product.name.toLowerCase().includes("attar") && !product.name.toLowerCase().includes("oud")) {
-          return false;
-        }
-      } else if (selectedType === "gift") {
-        if (product.category !== "Gift Sets" && !product.name.toLowerCase().includes("gift set") && !product.name.toLowerCase().includes("box") && !product.name.toLowerCase().includes("duo")) {
+      if (selectedType === "women") {
+        if (!product.category.toLowerCase().includes("women")) return false;
+      } else if (selectedType === "men") {
+        if (!product.category.toLowerCase().includes("men")) return false;
+      } else if (selectedType === "unisex") {
+        if (!product.category.toLowerCase().includes("unisex")) return false;
+      } else if (selectedType === "bestsellers") {
+        const tag = (product.tag || "").toLowerCase();
+        if (!tag.includes("bestseller") && !tag.includes("trending") && !tag.includes("favorite") && !tag.includes("signature")) {
           return false;
         }
       }
 
       // Price filter
       const minPrice = getMinPrice(product.priceRange);
-      if (selectedPrice === "under999") {
-        if (minPrice >= 1000) return false;
-      } else if (selectedPrice === "999to1499") {
-        if (minPrice < 999 || minPrice >= 1500) return false;
-      } else if (selectedPrice === "1500plus") {
-        if (minPrice < 1500) return false;
+      if (selectedPrice === "price599") {
+        if (minPrice > 600) return false;
+      } else if (selectedPrice === "price649") {
+        if (minPrice <= 600) return false;
       }
 
       return true;
@@ -95,7 +88,7 @@ export default function Collections() {
 
   const getWhatsAppLink = (productName: string, priceRange: string) => {
     const text = encodeURIComponent(
-      `Hi RK Perfume! I'm on your website and would like to order "${productName}" (${priceRange}). Can you share availability and payment details?`
+      `Hi ESSPRIVE! I'm on your website and would like to order "${productName}" (${priceRange}). Can you please share availability and payment details?`
     );
     return `https://wa.me/${BUSINESS_INFO.phoneClean}?text=${text}`;
   };
@@ -111,13 +104,13 @@ export default function Collections() {
           className="text-center mb-10 sm:mb-14"
         >
           <span className="text-[#C5A059] text-xs font-medium tracking-[0.3em] uppercase block mb-3">
-            Tulshibaug Flagship Boutique
+            ESSPRIVE Haute Parfumerie
           </span>
           <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl uppercase tracking-wide font-normal mb-4">
             Curated Fragrance Collections
           </h1>
           <p className="text-[#5A646B] max-w-2xl mx-auto text-sm sm:text-base leading-relaxed font-light">
-            From pure Cambodian agarwood attars to artisanal impressions of iconic world fragrances. Handcrafted in Pune with starting prices from ₹299.
+            Luxury Extrait de Parfum creations inspired by the world&apos;s most iconic designer masterpieces. Handcrafted with authentic premium oils and long-lasting projection.
           </p>
         </motion.div>
 
@@ -132,7 +125,7 @@ export default function Collections() {
                 Try Before You Buy &middot; Special Offer
               </span>
               <h3 className="font-heading text-lg sm:text-xl uppercase tracking-wider text-[#1A2024]">
-                4 x 20ml Luxury Discovery Box &mdash; ₹999
+                4 x 20ml Luxury Discovery Box &mdash; ₹599 - ₹649
               </h3>
               <p className="text-xs text-[#5A646B] font-light mt-0.5">
                 Test 4 bestselling fragrances for 14 days before committing to full 100ml bottles. Free delivery across India.
@@ -140,7 +133,7 @@ export default function Collections() {
             </div>
           </div>
           <a
-            href={getWhatsAppLink("4 x 20ml Luxury Discovery Box", "₹999")}
+            href={getWhatsAppLink("4 x 20ml Luxury Discovery Box", "₹599 - ₹649")}
             target="_blank"
             rel="noopener noreferrer"
             className="shrink-0 px-6 py-3 bg-[#1A2024] text-white text-xs uppercase tracking-[0.18em] font-medium hover:bg-black transition-colors"
@@ -177,11 +170,11 @@ export default function Collections() {
             <div className="flex flex-wrap items-center gap-1.5">
               <span className="text-[10px] uppercase tracking-wider text-[#8E98A0] mr-1 font-medium">Type:</span>
               {[
-                { id: "all", label: "All Items" },
-                { id: "inspired", label: "RK Inspired" },
-                { id: "original", label: "Originals" },
-                { id: "attar", label: "Arabian Attars" },
-                { id: "gift", label: "Gift Sets & Boxes" },
+                { id: "all", label: "All Fragrances" },
+                { id: "women", label: "For Her (Women)" },
+                { id: "men", label: "For Him (Men)" },
+                { id: "unisex", label: "Unisex & Niche" },
+                { id: "bestsellers", label: "Bestsellers" },
               ].map((tab) => (
                 <button
                   key={tab.id}
@@ -197,27 +190,12 @@ export default function Collections() {
               ))}
             </div>
 
-            {/* Price Filter */}
-            <div className="flex flex-wrap items-center gap-1.5">
-              <span className="text-[10px] uppercase tracking-wider text-[#8E98A0] mr-1 font-medium">Budget:</span>
-              {[
-                { id: "all", label: "All" },
-                { id: "under999", label: "Under ₹999" },
-                { id: "999to1499", label: "₹999 – ₹1,499" },
-                { id: "1500plus", label: "₹1,500+" },
-              ].map((p) => (
-                <button
-                  key={p.id}
-                  onClick={() => setSelectedPrice(p.id as any)}
-                  className={`px-3 py-1 text-xs uppercase tracking-wider transition-all cursor-pointer ${
-                    selectedPrice === p.id
-                      ? "bg-[#C5A059] text-[#1A2024] font-semibold"
-                      : "bg-[#F7F6F3] text-[#5A646B] hover:text-[#1A2024] border border-black/[0.06]"
-                  }`}
-                >
-                  {p.label}
-                </button>
-              ))}
+            {/* Price Indicator */}
+            <div className="flex items-center gap-1.5">
+              <span className="text-[10px] uppercase tracking-wider text-[#8E98A0] font-medium">Price:</span>
+              <span className="px-3 py-1 text-xs uppercase tracking-wider bg-[#C5A059] text-[#1A2024] font-semibold border border-[#C5A059]/40">
+                ₹599 &ndash; ₹649 (All Fragrances)
+              </span>
             </div>
           </div>
         </div>
@@ -240,15 +218,30 @@ export default function Collections() {
         </div>
 
         {/* Products Grid */}
-        <motion.div
-          layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
-          <AnimatePresence mode="popLayout">
-            {filteredProducts.map((product) => {
-              const isInspired = product.name.toLowerCase().includes("inspired") || product.category.toLowerCase().includes("inspired");
-              const isAttar = product.category === "Arabian Attars";
-
+        {filteredProducts.length === 0 ? (
+          <div className="text-center py-20 bg-[#F7F6F3] border border-black/[0.06] p-8 max-w-xl mx-auto">
+            <Sparkles className="w-8 h-8 mx-auto mb-3 text-[#C5A059]" />
+            <p className="text-sm uppercase tracking-[0.2em] text-[#1A2024] font-medium mb-2">No Matching Fragrance Found</p>
+            <p className="text-xs text-[#5A646B] leading-relaxed mb-6 font-light">
+              Try adjusting your search terms or filters, or connect with us directly on WhatsApp for custom inquiries.
+            </p>
+            <a
+              href={`https://wa.me/${BUSINESS_INFO.phoneClean}?text=${encodeURIComponent("Hi! I would like to inquire about available perfumes.")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-[#1A2024] text-white text-xs uppercase tracking-[0.16em] font-medium hover:bg-black transition-colors"
+            >
+              <ShoppingBag size={14} />
+              <span>Inquire on WhatsApp</span>
+            </a>
+          </div>
+        ) : (
+          <motion.div
+            layout
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
+            <AnimatePresence mode="popLayout">
+              {filteredProducts.map((product) => {
               return (
                 <motion.div
                   layout
@@ -263,21 +256,11 @@ export default function Collections() {
                   <div className="relative aspect-square w-full overflow-hidden bg-[#F7F6F3]">
                     {/* Floating Product Type Badge */}
                     <div className="absolute top-3 left-3 z-20 flex flex-col gap-1">
-                      {isInspired ? (
-                        <span className="bg-[#1A2024] text-white text-[9px] font-semibold tracking-widest uppercase px-2.5 py-1">
-                          RK Inspired
-                        </span>
-                      ) : isAttar ? (
-                        <span className="bg-emerald-800 text-white text-[9px] font-semibold tracking-widest uppercase px-2.5 py-1">
-                          100% Attar Oil
-                        </span>
-                      ) : (
-                        <span className="bg-[#C5A059] text-[#1A2024] text-[9px] font-semibold tracking-widest uppercase px-2.5 py-1">
-                          RK Original
-                        </span>
-                      )}
+                      <span className="bg-[#1A2024] text-white text-[9px] font-semibold tracking-widest uppercase px-2.5 py-1">
+                        ESSPRIVE Extrait
+                      </span>
                       {product.tag && (
-                        <span className="bg-white/90 text-[#1A2024] text-[9px] font-medium tracking-wider uppercase px-2 py-0.5 border border-black/10">
+                        <span className="bg-[#C5A059] text-[#1A2024] text-[9px] font-bold tracking-wider uppercase px-2 py-0.5">
                           {product.tag}
                         </span>
                       )}
@@ -363,7 +346,8 @@ export default function Collections() {
               );
             })}
           </AnimatePresence>
-        </motion.div>
+          </motion.div>
+        )}
       </div>
     </section>
   );

@@ -162,7 +162,7 @@ export default function Hero() {
         >
           Pure Arabian attars, luxury Eau de Parfums & artisanal inspired
           fragrances — handcrafted compositions starting from{" "}
-          <strong className="text-white font-medium">₹299</strong>
+          <strong className="text-white font-medium">₹599 - ₹649</strong>
         </motion.p>
 
         {/* CTA Buttons */}

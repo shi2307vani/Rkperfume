@@ -30,11 +30,11 @@ export default function Home() {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/images/gift_premium.png"
-                  alt="RK Perfume 4 x 20ml Discovery Box"
+                  alt="ESSPRIVE 4 x 20ml Discovery Box"
                   className="w-full h-full object-contain drop-shadow-lg"
                 />
                 <span className="absolute top-4 right-4 px-2.5 py-1 bg-[#C5A059] text-[#1A2024] text-[10px] uppercase tracking-widest font-bold">
-                  Just ₹999
+                  ₹599 - ₹649
                 </span>
               </div>
             </div>
@@ -47,7 +47,7 @@ export default function Home() {
                 Test 4 Luxury Scents at Home with Zero Risk
               </h2>
               <p className="text-sm sm:text-base text-[#B8C2C9] leading-relaxed font-light mb-6 max-w-2xl">
-                Unsure which fragrance matches your skin chemistry? Order our bestselling 4 x 20ml Discovery Box for ₹999. Wear them to work, evenings, and workouts for two weeks before committing to a full 100ml bottle.
+                Unsure which fragrance matches your skin chemistry? Order our bestselling 4 x 20ml Discovery Box for ₹599 - ₹649. Wear them to work, evenings, and workouts for two weeks before committing to a full 100ml bottle.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-[#E1E6EA] mb-8 font-light">
@@ -70,7 +70,7 @@ export default function Home() {
                   href="/collections"
                   className="px-8 py-3.5 bg-[#C5A059] text-[#1A2024] text-xs uppercase tracking-[0.2em] font-semibold hover:bg-[#b08c45] transition-colors inline-flex items-center gap-2"
                 >
-                  <span>Order Discovery Box (₹999)</span>
+                  <span>Order Discovery Box (₹599 - ₹649)</span>
                   <ArrowRight size={14} />
                 </Link>
                 <a
