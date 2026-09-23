@@ -7,6 +7,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingElements from "@/components/FloatingElements";
 import LoadingScreen from "@/components/LoadingScreen";
+import { CartProvider } from "@/context/CartContext";
+import CartDrawer from "@/components/CartDrawer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -87,13 +89,16 @@ export default function RootLayout({
         <meta name="theme-color" content="#F9F6F1" />
       </head>
       <body className="min-h-full flex flex-col bg-cream text-text-primary">
-        <LoadingScreen />
-        <Navbar />
-        <main className="flex-grow">
-          {children}
-        </main>
-        <Footer />
-        <FloatingElements />
+        <CartProvider>
+          <LoadingScreen />
+          <Navbar />
+          <CartDrawer />
+          <main className="flex-grow">
+            {children}
+          </main>
+          <Footer />
+          <FloatingElements />
+        </CartProvider>
       </body>
     </html>
   );

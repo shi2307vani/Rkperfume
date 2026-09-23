@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Phone, MessageCircle } from "lucide-react";
+import { Menu, X, Phone, MessageCircle, ShoppingBag } from "lucide-react";
 import { BUSINESS_INFO } from "@/lib/constants";
+import { useCart } from "@/context/CartContext";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -20,6 +21,7 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const { openCart, totalItems } = useCart();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -78,7 +80,21 @@ export default function Navbar() {
             </div>
 
             {/* Right Desktop CTA */}
-            <div className="hidden lg:flex items-center gap-4">
+            <div className="hidden lg:flex items-center gap-3">
+              <button
+                onClick={openCart}
+                className="relative inline-flex items-center justify-center p-2 text-[#1A2024] hover:text-[#C5A059] transition-colors cursor-pointer"
+                aria-label={`Shopping bag with ${totalItems} items`}
+                title="View shopping bag"
+              >
+                <ShoppingBag size={20} />
+                {totalItems > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-[#1A2024] text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
+                    {totalItems}
+                  </span>
+                )}
+              </button>
+
               <a
                 href={BUSINESS_INFO.social.whatsapp}
                 target="_blank"
@@ -90,8 +106,21 @@ export default function Navbar() {
               </a>
             </div>
 
-            {/* Mobile Menu Toggle */}
-            <div className="flex items-center lg:hidden">
+            {/* Mobile Menu & Cart */}
+            <div className="flex items-center gap-2 lg:hidden">
+              <button
+                onClick={openCart}
+                className="relative p-2 text-[#1A2024] hover:bg-black/5 rounded cursor-pointer"
+                aria-label={`Shopping bag with ${totalItems} items`}
+              >
+                <ShoppingBag size={20} />
+                {totalItems > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-[#1A2024] text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
+                    {totalItems}
+                  </span>
+                )}
+              </button>
+
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className="p-1.5 text-[#1A2024] hover:bg-black/5 rounded"

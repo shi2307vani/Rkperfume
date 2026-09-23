@@ -3,7 +3,8 @@
 import { useRef, useState, useMemo } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { COLLECTION_PRODUCTS, BUSINESS_INFO } from "@/lib/constants";
-import { ShoppingBag, Search, Sparkles, SlidersHorizontal, Gift, ArrowRight } from "lucide-react";
+import { ShoppingBag, Search, Sparkles, SlidersHorizontal, Gift, ArrowRight, Check, MessageCircle } from "lucide-react";
+import { useCart } from "@/context/CartContext";
 import Link from "next/link";
 
 interface Product {
@@ -29,6 +30,21 @@ export default function Collections() {
   const [selectedType, setSelectedType] = useState<"all" | "women" | "men" | "unisex" | "bestsellers">("all");
   const [selectedPrice, setSelectedPrice] = useState<"all" | "price599" | "price649">("all");
   const [expandedProducts, setExpandedProducts] = useState<Record<string, boolean>>({});
+  const [addedId, setAddedId] = useState<string | null>(null);
+  const { addToCart } = useCart();
+
+  const handleAddToCart = (product: Product) => {
+    setAddedId(product.id);
+    addToCart({
+      id: product.id,
+      name: product.name,
+      price: getMinPrice(product.priceRange),
+      displayPrice: product.priceRange,
+      size: "50 ml / 2 OZ",
+      image: product.image,
+    });
+    setTimeout(() => setAddedId(null), 2000);
+  };
 
   const toggleExpand = (productId: string) => {
     setExpandedProducts((prev) => ({
@@ -331,16 +347,34 @@ export default function Collections() {
                       </div>
                     </div>
 
-                    {/* Action Button */}
-                    <a
-                      href={getWhatsAppLink(product.name, product.priceRange)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="py-2.5 px-4 w-full bg-[#1A2024] text-white text-xs uppercase tracking-[0.16em] font-medium flex items-center justify-center gap-2 hover:bg-black transition-colors"
-                    >
-                      <ShoppingBag size={13} />
-                      <span>Order on WhatsApp</span>
-                    </a>
+                    {/* Action Buttons */}
+                    <div className="flex flex-col gap-2 mt-auto">
+                      <button
+                        onClick={() => handleAddToCart(product)}
+                        className="py-2.5 px-4 w-full bg-[#1A2024] text-white text-xs uppercase tracking-[0.16em] font-medium flex items-center justify-center gap-2 hover:bg-black transition-colors cursor-pointer"
+                      >
+                        {addedId === product.id ? (
+                          <span className="inline-flex items-center gap-1.5 text-emerald-400">
+                            <Check size={13} /> ADDED TO CART
+                          </span>
+                        ) : (
+                          <>
+                            <ShoppingBag size={13} />
+                            <span>ADD TO CART</span>
+                          </>
+                        )}
+                      </button>
+
+                      <a
+                        href={getWhatsAppLink(product.name, product.priceRange)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="py-1.5 px-3 w-full bg-transparent border border-black/10 text-[#5A646B] hover:text-[#1A2024] text-[11px] uppercase tracking-[0.14em] font-medium flex items-center justify-center gap-1.5 hover:border-black transition-colors"
+                      >
+                        <MessageCircle size={12} className="text-emerald-700" />
+                        <span>Order on WhatsApp</span>
+                      </a>
+                    </div>
                   </div>
                 </motion.div>
               );

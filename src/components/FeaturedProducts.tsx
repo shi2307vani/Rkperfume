@@ -4,9 +4,21 @@ import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { ArrowRight, Check } from "lucide-react";
 import { BUSINESS_INFO } from "@/lib/constants";
+import { useCart } from "@/context/CartContext";
 import Link from "next/link";
 
 const CUSTOMER_FAVORITES = [
+  {
+    id: "sample-tester-flacon",
+    title: "ESSPRIVE TEST VIAL",
+    type: "Sample Flacon",
+    size: "2 ml Tester",
+    price: "₹1",
+    originalPrice: "₹49",
+    badge: "₹1 Live Test",
+    image: "/images/products/essprive_coco_m.jpg",
+    description: "Miniature 2ml tester flacon for live payment testing, checkout flow verification, and scent evaluation.",
+  },
   {
     id: "essprive-coco-m",
     title: "ESSPRIVE COCO M",
@@ -46,13 +58,19 @@ export default function FeaturedProducts() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [addedId, setAddedId] = useState<string | null>(null);
+  const { addToCart } = useCart();
 
   const handleAddToCart = (product: typeof CUSTOMER_FAVORITES[0]) => {
     setAddedId(product.id);
-    setTimeout(() => setAddedId(null), 2000);
-    // WhatsApp inquiry direct checkout
-    const msg = encodeURIComponent(`Hi RK Perfume! I would like to order "${product.title}" (${product.type} ${product.size}) for ${product.price}.`);
-    window.open(`${BUSINESS_INFO.social.whatsapp}?text=${msg}`, "_blank");
+    addToCart({
+      id: product.id,
+      name: product.title,
+      price: product.id === "sample-tester-flacon" ? 1 : 599,
+      displayPrice: product.price,
+      size: product.size,
+      image: product.image,
+    });
+    setTimeout(() => setAddedId(null), 2500);
   };
 
   return (
