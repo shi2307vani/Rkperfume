@@ -28,7 +28,11 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const keySecret = process.env.RAZORPAY_KEY_SECRET;
+    const keySecret =
+      process.env.RAZORPAY_KEY_SECRET ||
+      process.env.RAZORPAY_SECRET_KEY ||
+      process.env.RAZORPAY_LIVE_KEY_SECRET;
+
     if (!keySecret) {
       console.error("Missing RAZORPAY_KEY_SECRET on server");
       return NextResponse.json(
@@ -101,8 +105,11 @@ export async function POST(req: NextRequest) {
       orderStatus: orderStatus,
     };
 
-    // Forward to Google Apps Script Web App (if configured)
-    const webhookUrl = process.env.GOOGLE_SHEET_WEBHOOK_URL;
+    // Forward to Google Apps Script Web App (supports flexible webhook names)
+    const webhookUrl =
+      process.env.GOOGLE_SHEET_WEBHOOK_URL ||
+      process.env.GOOGLE_SHEETS_WEBHOOK_URL ||
+      process.env.GOOGLE_SHEET_URL;
     let sheetRecorded = false;
     let sheetMessage = "";
 

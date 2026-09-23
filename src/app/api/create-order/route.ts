@@ -63,9 +63,16 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Server-side Razorpay credentials
-    const keyId = process.env.RAZORPAY_KEY_ID || process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID;
-    const keySecret = process.env.RAZORPAY_KEY_SECRET;
+    // Server-side Razorpay credentials (supports multiple secret naming conventions)
+    const keyId =
+      process.env.RAZORPAY_KEY_ID ||
+      process.env.RAZORPAY_LIVE_KEY_ID ||
+      process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID;
+
+    const keySecret =
+      process.env.RAZORPAY_KEY_SECRET ||
+      process.env.RAZORPAY_SECRET_KEY ||
+      process.env.RAZORPAY_LIVE_KEY_SECRET;
 
     if (!keyId || !keySecret) {
       console.error("Missing Razorpay credentials on server");
@@ -121,6 +128,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({
       success: true,
+      keyId, // Returned to client dynamically so no NEXT_PUBLIC_ variable is required in Vercel
       orderId: appOrderId,
       razorpayOrderId: razorpayData.id,
       amount: razorpayData.amount, // in paise

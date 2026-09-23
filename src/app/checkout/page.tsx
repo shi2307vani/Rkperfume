@@ -152,7 +152,7 @@ export default function CheckoutPage() {
 
       // Step 2: Open Razorpay Checkout modal
       const razorpayKey =
-        process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || "rzp_test_placeholder";
+        orderData.keyId || process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || "";
 
       const options: RazorpayOptions = {
         key: razorpayKey,
