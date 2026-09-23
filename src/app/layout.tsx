@@ -25,6 +25,7 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: SEO.title,
   description: SEO.description,
+  referrer: "strict-origin-when-cross-origin",
   keywords: SEO.keywords.join(", "),
   authors: [{ name: BUSINESS_INFO.name }],
   creator: BUSINESS_INFO.name,
@@ -84,6 +85,7 @@ export default function RootLayout({
     >
       <head>
         <JsonLd />
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta name="theme-color" content="#F9F6F1" />
