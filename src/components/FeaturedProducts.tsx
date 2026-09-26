@@ -9,17 +9,6 @@ import Link from "next/link";
 
 const CUSTOMER_FAVORITES = [
   {
-    id: "sample-tester-flacon",
-    title: "ESSPRIVE TEST VIAL",
-    type: "Sample Flacon",
-    size: "2 ml Tester",
-    price: "₹1",
-    originalPrice: "₹49",
-    badge: "₹1 Live Test",
-    image: "/images/products/essprive_coco_m.jpg",
-    description: "Miniature 2ml tester flacon for live payment testing, checkout flow verification, and scent evaluation.",
-  },
-  {
     id: "essprive-coco-m",
     title: "ESSPRIVE COCO M",
     type: "Extrait de Parfum",
@@ -65,7 +54,7 @@ export default function FeaturedProducts() {
     addToCart({
       id: product.id,
       name: product.title,
-      price: product.id === "sample-tester-flacon" ? 1 : 599,
+      price: 599,
       displayPrice: product.price,
       size: product.size,
       image: product.image,

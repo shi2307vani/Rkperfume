@@ -12,17 +12,6 @@ export interface ProductItem {
 
 export const PRODUCTS_CATALOG: ProductItem[] = [
   {
-    id: "sample-tester-flacon",
-    name: "ESSPRIVE Sample Tester Flacon",
-    category: "Discovery & Testers",
-    price: 1,
-    displayPrice: "₹1",
-    size: "2 ml Tester Flacon",
-    image: "/images/products/essprive_coco_m.jpg",
-    tag: "₹1 Live Test",
-    description: "Miniature 2ml tester flacon for live payment verification and scent evaluation.",
-  },
-  {
     id: "essprive-coco-m",
     name: "ESSPRIVE Coco M",
     category: "Women's Collection",
