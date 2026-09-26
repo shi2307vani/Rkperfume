@@ -138,8 +138,24 @@ export const PRODUCTS_MAP = new Map<string, ProductItem>(
   PRODUCTS_CATALOG.map((p) => [p.id, p])
 );
 
+const PRODUCT_ALIASES: Record<string, string> = {
+  "aventus-rec": "essprive-aventus",
+  "sauvage-rec": "essprive-sauvage",
+  "oud-wood-rec": "essprive-oud-wood",
+  "eros-rec": "essprive-eros",
+  "flora-rec": "essprive-flora",
+  "bright-crystal-rec": "essprive-bright-crystal",
+  "black-opium-rec": "essprive-black-opium",
+  "coco-m-rec": "essprive-coco-m",
+  "rouge-540-rec": "essprive-rouge-540",
+  "bleu-rec": "essprive-bleu",
+  "discovery-set-rec": "discovery-box-4x20ml",
+  "femme-discovery-rec": "discovery-box-4x20ml",
+};
+
 export function getProductById(id: string): ProductItem | undefined {
-  return PRODUCTS_MAP.get(id);
+  const resolvedId = PRODUCT_ALIASES[id] || id;
+  return PRODUCTS_MAP.get(resolvedId);
 }
 
 export interface OrderValidationResult {

@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Check, ShoppingBag } from "lucide-react";
 import { BUSINESS_INFO } from "@/lib/constants";
 import { useCart } from "@/context/CartContext";
 import Link from "next/link";
@@ -145,19 +145,24 @@ export default function FeaturedProducts() {
                 )}
               </div>
 
-              {/* ADD TO CART Link matching reference */}
-              <button
-                onClick={() => handleAddToCart(product)}
-                className="fleur-link text-[11px] tracking-[0.2em] text-[#1A2024] hover:text-warm-gold uppercase py-1 cursor-pointer transition-all"
-              >
-                {addedId === product.id ? (
-                  <span className="inline-flex items-center gap-1.5 text-emerald-700">
-                    <Check size={13} /> ADDED TO CART
-                  </span>
-                ) : (
-                  "ADD TO CART"
-                )}
-              </button>
+              {/* Proper Luxury ADD TO CART Button */}
+              <div className="w-full mt-2">
+                <button
+                  onClick={() => handleAddToCart(product)}
+                  className="w-full py-3 px-5 bg-[#1A2024] text-white text-xs uppercase tracking-[0.18em] font-medium hover:bg-black transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-xs"
+                >
+                  {addedId === product.id ? (
+                    <span className="inline-flex items-center gap-1.5 text-emerald-400 font-semibold">
+                      <Check size={14} /> ADDED TO CART
+                    </span>
+                  ) : (
+                    <>
+                      <ShoppingBag size={14} className="text-[#C5A059]" />
+                      <span>ADD TO CART</span>
+                    </>
+                  )}
+                </button>
+              </div>
             </motion.div>
           ))}
         </div>

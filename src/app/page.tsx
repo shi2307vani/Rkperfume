@@ -1,14 +1,34 @@
 "use client";
 
+import { useState } from "react";
 import Hero from "@/components/Hero";
 import FeaturedProducts from "@/components/FeaturedProducts";
 import PerfumeFinder from "@/components/PerfumeFinder";
 import Link from "next/link";
-import { ArrowRight, Star, Sparkles, MapPin, Clock, ShieldCheck, HeartHandshake, Award, Gift, Truck, CheckCircle } from "lucide-react";
+import { ArrowRight, Star, Sparkles, MapPin, Clock, ShieldCheck, HeartHandshake, Award, Gift, Truck, CheckCircle, ShoppingBag } from "lucide-react";
 import { BUSINESS_INFO, TESTIMONIALS } from "@/lib/constants";
+import { useCart } from "@/context/CartContext";
 
 export default function Home() {
+  const { addToCart, openCart } = useCart();
+  const [addedDiscovery, setAddedDiscovery] = useState(false);
   const topReviews = TESTIMONIALS.slice(0, 2);
+
+  const handleAddDiscoveryBox = () => {
+    addToCart({
+      id: "discovery-box-4x20ml",
+      name: "ESSPRIVE 4 x 20ml Discovery Box",
+      price: 599,
+      displayPrice: "₹599",
+      size: "4 x 20 ml Flacons",
+      image: "/images/gift_premium.png",
+    });
+    setAddedDiscovery(true);
+    openCart();
+    setTimeout(() => {
+      setAddedDiscovery(false);
+    }, 2000);
+  };
 
   return (
     <>
@@ -66,11 +86,26 @@ export default function Home() {
               </div>
 
               <div className="flex flex-wrap items-center gap-4">
+                <button
+                  onClick={handleAddDiscoveryBox}
+                  className="px-8 py-3.5 bg-[#C5A059] text-[#1A2024] text-xs uppercase tracking-[0.2em] font-semibold hover:bg-[#b08c45] transition-colors inline-flex items-center gap-2 cursor-pointer shadow-sm"
+                >
+                  {addedDiscovery ? (
+                    <span className="inline-flex items-center gap-1.5 font-bold">
+                      <CheckCircle size={15} /> Added to Cart
+                    </span>
+                  ) : (
+                    <>
+                      <ShoppingBag size={15} />
+                      <span>Add to Cart (₹599)</span>
+                    </>
+                  )}
+                </button>
                 <Link
                   href="/collections"
-                  className="px-8 py-3.5 bg-[#C5A059] text-[#1A2024] text-xs uppercase tracking-[0.2em] font-semibold hover:bg-[#b08c45] transition-colors inline-flex items-center gap-2"
+                  className="px-6 py-3.5 border border-white/20 text-white text-xs uppercase tracking-[0.18em] font-medium hover:bg-white/10 transition-colors inline-flex items-center gap-2"
                 >
-                  <span>Order Discovery Box (₹599 - ₹649)</span>
+                  <span>View All Sets</span>
                   <ArrowRight size={14} />
                 </Link>
                 <a
@@ -79,7 +114,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="px-6 py-3.5 border border-white/20 text-white text-xs uppercase tracking-[0.18em] font-medium hover:bg-white/10 transition-colors"
                 >
-                  Customize Your 4 Scents via WhatsApp
+                  Customize via WhatsApp
                 </a>
               </div>
             </div>

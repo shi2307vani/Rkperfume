@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Sparkles, ArrowRight, RotateCcw, Check, MessageCircle, Heart, Flame, Droplets, Gift } from "lucide-react";
+import { Sparkles, ArrowRight, RotateCcw, Check, MessageCircle, Heart, Flame, Droplets, Gift, ShoppingBag } from "lucide-react";
 import { BUSINESS_INFO } from "@/lib/constants";
 import Link from "next/link";
+import { useCart } from "@/context/CartContext";
 
 interface Recommendation {
   id: string;
@@ -166,7 +167,10 @@ const RECOMMENDATIONS_DB: Record<string, Recommendation[]> = {
 };
 
 export default function PerfumeFinder() {
+  const { addToCart, openCart } = useCart();
   const [step, setStep] = useState(1);
+  const [addedRecId, setAddedRecId] = useState<string | null>(null);
+  const [addedDiscovery, setAddedDiscovery] = useState(false);
   const [answers, setAnswers] = useState({
     recipient: "men",
     mood: "fresh",
@@ -213,6 +217,38 @@ export default function PerfumeFinder() {
       `Hi RK Perfume! I used your Scent Finder tool and matched with "${productName}" (${price}). Can I place an order for this?`
     );
     window.open(`https://wa.me/${BUSINESS_INFO.phoneClean}?text=${text}`, "_blank");
+  };
+
+  const handleAddToCart = (rec: Recommendation) => {
+    addToCart({
+      id: rec.id,
+      name: rec.name,
+      price: 599,
+      displayPrice: "₹599",
+      size: "50 ml / 2 OZ",
+      image: rec.image,
+    });
+    setAddedRecId(rec.id);
+    openCart();
+    setTimeout(() => {
+      setAddedRecId(null);
+    }, 2000);
+  };
+
+  const handleAddDiscoveryBox = () => {
+    addToCart({
+      id: "discovery-box-4x20ml",
+      name: "ESSPRIVE 4 x 20ml Discovery Box",
+      price: 599,
+      displayPrice: "₹599",
+      size: "4 x 20 ml Flacons",
+      image: "/images/gift_premium.png",
+    });
+    setAddedDiscovery(true);
+    openCart();
+    setTimeout(() => {
+      setAddedDiscovery(false);
+    }, 2000);
   };
 
   return (
@@ -489,17 +525,47 @@ export default function PerfumeFinder() {
                         </p>
                       </div>
 
-                      <div className="pt-4 border-t border-black/[0.06] flex items-center justify-between">
-                        <span className="font-heading text-lg text-[#1A2024] font-semibold">
-                          {rec.price}
-                        </span>
-                        <button
-                          onClick={() => orderViaWhatsApp(rec.name, rec.price)}
-                          className="px-4 py-2 bg-[#1A2024] text-white text-xs uppercase tracking-[0.16em] font-medium hover:bg-black transition-colors inline-flex items-center gap-1.5 cursor-pointer"
-                        >
-                          <MessageCircle size={13} className="text-emerald-400" />
-                          <span>Order on WhatsApp</span>
-                        </button>
+                      <div className="pt-4 border-t border-black/[0.06] flex flex-col gap-3">
+                        <div className="flex items-baseline justify-between">
+                          <div className="flex items-baseline gap-2">
+                            <span className="font-heading text-lg sm:text-xl text-[#1A2024] font-semibold">
+                              {rec.price}
+                            </span>
+                            <span className="text-xs text-[#8E98A0] line-through">
+                              ₹899 - ₹999
+                            </span>
+                          </div>
+                          <span className="text-[10px] uppercase tracking-wider text-emerald-800 bg-emerald-50 px-2 py-0.5 border border-emerald-200 font-medium">
+                            Free Delivery
+                          </span>
+                        </div>
+
+                        {/* Dual Action: Luxury Add to Cart + WhatsApp */}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                          <button
+                            onClick={() => handleAddToCart(rec)}
+                            className="py-3 px-3 bg-[#1A2024] text-white text-xs uppercase tracking-[0.16em] font-medium hover:bg-black transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-xs"
+                          >
+                            {addedRecId === rec.id ? (
+                              <span className="inline-flex items-center gap-1.5 text-emerald-400 font-semibold">
+                                <Check size={14} /> ADDED
+                              </span>
+                            ) : (
+                              <>
+                                <ShoppingBag size={14} className="text-[#C5A059]" />
+                                <span>ADD TO CART</span>
+                              </>
+                            )}
+                          </button>
+
+                          <button
+                            onClick={() => orderViaWhatsApp(rec.name, rec.price)}
+                            className="py-3 px-3 border border-black/15 bg-white text-[#1A2024] text-xs uppercase tracking-[0.14em] font-medium hover:bg-black/[0.04] transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
+                          >
+                            <MessageCircle size={14} className="text-emerald-600 shrink-0" />
+                            <span>WhatsApp</span>
+                          </button>
+                        </div>
                       </div>
                     </div>
                   ))}
@@ -518,12 +584,29 @@ export default function PerfumeFinder() {
                       Pick 4 fragrances from our collection and test them on your skin for 2 weeks before ordering a full bottle.
                     </p>
                   </div>
-                  <Link
-                    href="/collections"
-                    className="mt-4 sm:mt-0 shrink-0 px-5 py-2.5 bg-[#1A2024] text-white text-xs uppercase tracking-[0.18em] font-medium hover:bg-black transition-colors inline-block"
-                  >
-                    View Discovery Sets
-                  </Link>
+                  <div className="mt-4 sm:mt-0 shrink-0 flex flex-col sm:flex-row items-center gap-2.5">
+                    <button
+                      onClick={handleAddDiscoveryBox}
+                      className="w-full sm:w-auto px-5 py-2.5 bg-[#1A2024] text-white text-xs uppercase tracking-[0.18em] font-medium hover:bg-black transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-xs"
+                    >
+                      {addedDiscovery ? (
+                        <span className="inline-flex items-center gap-1.5 text-emerald-400 font-semibold">
+                          <Check size={14} /> ADDED TO CART
+                        </span>
+                      ) : (
+                        <>
+                          <ShoppingBag size={14} className="text-[#C5A059]" />
+                          <span>ADD TO CART (₹599)</span>
+                        </>
+                      )}
+                    </button>
+                    <Link
+                      href="/collections"
+                      className="w-full sm:w-auto px-4 py-2.5 border border-black/20 text-[#1A2024] text-xs uppercase tracking-[0.18em] font-medium hover:bg-black/5 transition-colors inline-block text-center"
+                    >
+                      View Sets
+                    </Link>
+                  </div>
                 </div>
               </motion.div>
             )}
